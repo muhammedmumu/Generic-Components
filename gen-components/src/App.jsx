@@ -17,13 +17,13 @@ export default function App() {
 
   return (
     <>
-      <Box sx={{ 
-        p: 3, 
-        display: "flex", 
-        flexDirection: "row", 
-        flexWrap: "wrap", 
+      <Box sx={{
+        p: 3,
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
         alignItems: "flex-start",
-        gap: 3 
+        gap: 3
       }}>
 
         {tableConfigs.map((config) => (
