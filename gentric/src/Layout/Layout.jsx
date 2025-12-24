@@ -10,7 +10,7 @@ export default function Layout() {
         <Box
             sx={{
                 minHeight: '100vh',
-                backgroundColor: '#f5f7fa',
+                backgroundColor: 'background.default',
                 py: 4
             }}
         >
@@ -31,7 +31,7 @@ export default function Layout() {
                         sx={{
                             fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
                             fontWeight: 800,
-                            color: '#1a1a1a',
+                            color: 'text.primary',
                             mb: 1,
                             letterSpacing: '-1px'
                         }}
@@ -42,7 +42,7 @@ export default function Layout() {
                         component="p"
                         sx={{
                             fontSize: '1rem',
-                            color: '#666',
+                            color: 'text.secondary',
                             maxWidth: 600,
                             mx: 'auto'
                         }}
@@ -54,14 +54,20 @@ export default function Layout() {
                 <Box
                     sx={{
                         display: 'flex',
-                        flexDirection: 'column',
-                        gap: 3
+                        flexDirection: 'row',
+                        gap: 2
                     }}
                 >
-                    {mockTables.map(item =>
-                        <AllinOne>
+                    {mockTables.slice(0, 2).map(item =>
+
+
+                        <AllinOne
+                            key={item.id}
+                            title={item.title}
+                            titleIcons={item.titleIcons}
+                            button={item.button}
+                        >
                             <Tables
-                                key={item.id}
                                 rows={rows}
                                 columns={columns}
                                 fields={item.fields}
@@ -69,15 +75,6 @@ export default function Layout() {
                                 checkBox={item.checkbox}
                                 filtering={item.filtering}
                                 sorting={item.sorting} />
-
-
-                            {/* <Tables
-                            rows={rows}
-                            columns={columns}
-                            fields={mockTables[0].fields}
-                            paginationMode={true}
-                            checkBox={false}
-                        /> */}
                         </AllinOne>
                     )}
                 </Box>

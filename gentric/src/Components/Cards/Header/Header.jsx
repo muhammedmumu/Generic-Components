@@ -3,7 +3,7 @@ import React from 'react'
 import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
 import Box from '@mui/material/Box'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
+import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
 import FilterListIcon from '@mui/icons-material/FilterList'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -51,13 +51,12 @@ export default function Header({ header, icons = [], searchbar, filterbox, heade
                     <Box>
                         <Typography
                             variant="h3"
-                            color="initial"
                             sx={{
                                 p: '2px',
                                 fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' },
                                 fontWeight: 700,
                                 textTransform: 'capitalize',
-                                color: '#1a1a1a',
+                                color: 'text.primary',
                                 letterSpacing: '-0.5px',
                                 lineHeight: 1.2
                             }}
@@ -71,7 +70,7 @@ export default function Header({ header, icons = [], searchbar, filterbox, heade
                         display: 'flex',
                         gap: 1,
                         '& .MuiIconButton-root': {
-                            backgroundColor: '#f5f5f5',
+                            backgroundColor: 'background.default',
                             transition: 'all 0.2s',
                             '&:hover': {
                                 backgroundColor: 'primary.main',

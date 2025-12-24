@@ -1,35 +1,40 @@
 import Box from '@mui/material/Box'
 import React from 'react'
 import DownloadIcon from '@mui/icons-material/Download';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
 import Button from '@mui/material/Button';
 
-export const footerStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "12px 4px",
-    marginTop: "8px",
-    borderTop: "1px solid #e5e7eb",
-
-    "& a": {
-        fontSize: "14px",
-        fontWeight: 500,
-        color: "#2563eb",
-        textDecoration: "none",
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-        gap: "6px",
-
-        "&:hover": {
-            textDecoration: "underline",
-        },
+const buttonConfig = {
+    Download: {
+        label: 'Export',
+        variant: 'outlined',
+        icon: DownloadIcon,
+        colorScheme: 'primary'
     },
+    Print: {
+        label: 'Print',
+        variant: 'outlined',
+        icon: PrintIcon,
+        colorScheme: 'secondary'
+    },
+    Share: {
+        label: 'Share',
+        variant: 'contained',
+        icon: ShareIcon,
+        colorScheme: 'primary'
+    }
 };
 
-export default function Footer({ button = [] }) {
+export default function Footer({ button = [], buttonIcons = {} }) {
     const handleRender = () => {
         return button.map((btn, idx) => {
+            const config = buttonConfig[btn];
+            if (!config) return null;
+
+            const IconComponent = buttonIcons[btn] || config.icon;
+            const isOutlined = config.variant === 'outlined';
+            const colorScheme = config.colorScheme;
             const buttonSx = {
                 px: 3,
                 py: 1,
@@ -43,69 +48,36 @@ export default function Footer({ button = [] }) {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
                 }
             };
-
-            if (btn === 'Download') return (
+            return (
                 <Box key={idx}>
                     <Button
-                        variant="outlined"
-                        startIcon={<DownloadIcon />}
+                        variant={config.variant}
+                        startIcon={<IconComponent />}
                         sx={{
                             ...buttonSx,
-                            borderColor: 'primary.main',
-                            color: 'primary.main',
-                            '&:hover': {
-                                ...buttonSx['&:hover'],
-                                backgroundColor: 'primary.light',
-                                borderColor: 'primary.dark'
-                            }
+                            ...(isOutlined ? {
+                                border: 'none',
+                                color: `${colorScheme}.main`,
+                                '&:hover': {
+                                    ...buttonSx['&:hover'],
+                                    backgroundColor: `${colorScheme}.light`,
+                                    border: 'none'
+                                }
+                            } : {
+                                backgroundColor: `${colorScheme}.main`,
+                                '&:hover': {
+                                    ...buttonSx['&:hover'],
+                                    backgroundColor: `${colorScheme}.dark`
+                                }
+                            })
                         }}
                     >
-                        Export
+                        {config.label}
                     </Button>
                 </Box>
             );
-            if (btn === 'Print') return (
-                <Box key={idx}>
-                    <Button
-                        variant="outlined"
-                        startIcon={<DownloadIcon />}
-                        sx={{
-                            ...buttonSx,
-                            borderColor: 'secondary.main',
-                            color: 'secondary.main',
-                            '&:hover': {
-                                ...buttonSx['&:hover'],
-                                backgroundColor: 'secondary.light',
-                                borderColor: 'secondary.dark'
-                            }
-                        }}
-                    >
-                        Print
-                    </Button>
-                </Box>
-            );
-            if (btn === 'Share') return (
-                <Box key={idx}>
-                    <Button
-                        variant="contained"
-                        startIcon={<DownloadIcon />}
-                        sx={{
-                            ...buttonSx,
-                            backgroundColor: 'primary.main',
-                            '&:hover': {
-                                ...buttonSx['&:hover'],
-                                backgroundColor: 'primary.dark'
-                            }
-                        }}
-                    >
-                        Share
-                    </Button>
-                </Box>
-            );
-            return null;
         });
     };
-
     return (
         <Box
             sx={{
