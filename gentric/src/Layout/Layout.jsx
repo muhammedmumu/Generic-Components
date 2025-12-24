@@ -1,11 +1,31 @@
-import React from 'react'
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
-import AllinOne from '../Components/Cards/Gentric/AllinOne.jsx'
-import Tables from '../Components/Cards/Tables/GridTable.jsx'
-import { rows, columns, mockTables } from '../MockDAta/mock.js'
+import React from 'react';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import { useSearchParams } from 'react-router-dom';
+import CustomTabs from '../Pages/Tabs.jsx';
+import CustomSurveys from '../Pages/CustomSurveys.jsx';
+import EmailGroups from '../Pages/EmailGroups.jsx';
+import SurveyDesigns from '../Pages/SurveyDesigns.jsx';
+import EmailTemplates from '../Pages/EmailTemplates.jsx';
 
 export default function Layout() {
+    const [searchParams] = useSearchParams();
+    const tab = Number(searchParams.get('tab')) || 0;
+
+    const renderPage = () => {
+        switch (tab) {
+            case 0:
+                return <CustomSurveys />;
+            case 1:
+                return <EmailGroups />;
+            case 2:
+                return <SurveyDesigns />;
+            case 3:
+                return <EmailTemplates />;
+            default:
+                return <CustomSurveys />;
+        }
+    };
     return (
         <Box
             sx={{
@@ -51,34 +71,14 @@ export default function Layout() {
                     </Box>
                 </Box>
 
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        gap: 2
-                    }}
-                >
-                    {mockTables.slice(0, 2).map(item =>
+
+                <CustomTabs />
 
 
-                        <AllinOne
-                            key={item.id}
-                            title={item.title}
-                            titleIcons={item.titleIcons}
-                            button={item.button}
-                        >
-                            <Tables
-                                rows={rows}
-                                columns={columns}
-                                fields={item.fields}
-                                paginationMode={item.pagination}
-                                checkBox={item.checkbox}
-                                filtering={item.filtering}
-                                sorting={item.sorting} />
-                        </AllinOne>
-                    )}
+                <Box sx={{ mt: 3 }}>
+                    {renderPage()}
                 </Box>
             </Container>
         </Box>
-    )
+    );
 }
