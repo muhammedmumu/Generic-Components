@@ -19,6 +19,24 @@
       "render": "default"
     },
     {
+      "id": 4,
+      "title": "Full-Featured Table",
+      "icons": true,
+      "titleIcons": true,
+      "fields": ["id", "hospital_name", "job_title", "email_address"],
+      "button": ["Download", "Print", "Share"],
+      "pagination": true,
+      "checkbox": true,
+      "sorting": true,
+      "filtering": true,
+      "rowSelection": "multiple",
+      "loading": false,
+      "sortingMode": "client",
+      "onSelectMode": true,
+      "modeChange": false,
+      "render": "default"
+    },
+    {
       "id": 2,
       "title": "Simple Table (No Pagination)",
       "icons": false,

@@ -12,8 +12,6 @@ function useFetch() {
 
     useEffect(() => {
         setLoading(true);
-
-        // Try to fetch from API, fallback to mock data
         Promise.all([
             fetch('http://localhost:3000/mockTables')
                 .then(res => res.json())

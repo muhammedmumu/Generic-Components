@@ -30,7 +30,6 @@ export default function Layout() {
         <Box
             sx={{
                 minHeight: '100vh',
-                backgroundColor: 'background.default',
                 py: 4
             }}
         >

@@ -15,30 +15,39 @@ export default function CustomSurveys() {
     const columns = data.columns || mockColumns;
 
     return (
-        <Box sx={{ p: 3 }}>
-            <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-                Custom Surveys
-            </Typography>
+        <Box sx={{ p: 3, display: 'flex', flexDirection: 'row' }}>
 
-            {loading ? (
-                <Typography>Loading...</Typography>
-            ) : (
-                <AllinOne
-                    title={tableConfig.title}
-                    titleIcons={tableConfig.titleIcons}
-                    button={tableConfig.button}
-                >
-                    <Tables
-                        rows={rows}
-                        columns={columns}
-                        fields={tableConfig.fields}
-                        paginationMode={tableConfig.pagination}
-                        checkBox={tableConfig.checkbox}
-                        filtering={tableConfig.filtering}
-                        sorting={tableConfig.sorting}
-                    />
-                </AllinOne>
-            )}
+            <AllinOne
+                title={tableConfig.title}
+                titleIcons={tableConfig.titleIcons}
+                button={tableConfig.button}
+            >
+                <Tables
+                    rows={rows}
+                    columns={columns}
+                    fields={tableConfig.fields}
+                    paginationMode={tableConfig.pagination}
+                    checkBox={tableConfig.checkbox}
+                    filtering={tableConfig.filtering}
+                    sorting={tableConfig.sorting}
+                />
+            </AllinOne>
+            <AllinOne
+                title={tableConfig.title}
+                titleIcons={tableConfig.titleIcons}
+                button={tableConfig.button}
+            >
+                <Tables
+                    rows={rows}
+                    columns={columns}
+                    fields={tableConfig.fields}
+                    paginationMode={tableConfig.pagination}
+                    checkBox={tableConfig.checkbox}
+                    filtering={tableConfig.filtering}
+                    sorting={tableConfig.sorting}
+                />
+            </AllinOne>
+
         </Box>
     );
 }

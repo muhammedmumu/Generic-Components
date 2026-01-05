@@ -35,7 +35,6 @@ export default function Tables({ rows, columns, fields, paginationMode, checkBox
                 checkboxSelection={checkBox}
                 disableColumnFilter={!filtering}
                 disableColumnMenu={!filtering && !sorting}
-
                 sortingMode="client"
                 columnHeaderHeight={56}
                 slotProps={{
