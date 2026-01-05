@@ -1,16 +1,36 @@
-import React from 'react'
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
-import AllinOne from '../Components/Cards/Gentric/AllinOne.jsx'
-import Tables from '../Components/Cards/Tables/GridTable.jsx'
-import { rows, columns, mockTables } from '../MockDAta/mock.js'
+import React from 'react';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import { useSearchParams } from 'react-router-dom';
+import CustomTabs from '../Pages/Tabs.jsx';
+import CustomSurveys from '../Pages/CustomSurveys.jsx';
+import EmailGroups from '../Pages/EmailGroups.jsx';
+import SurveyDesigns from '../Pages/SurveyDesigns.jsx';
+import EmailTemplates from '../Pages/EmailTemplates.jsx';
 
 export default function Layout() {
+    const [searchParams] = useSearchParams();
+    const tab = Number(searchParams.get('tab')) || 0;
+
+    const renderPage = () => {
+        switch (tab) {
+            case 0:
+                return <CustomSurveys />;
+            case 1:
+                return <EmailGroups />;
+            case 2:
+                return <SurveyDesigns />;
+            case 3:
+                return <EmailTemplates />;
+            default:
+                return <CustomSurveys />;
+        }
+    };
     return (
         <Box
             sx={{
                 minHeight: '100vh',
-                backgroundColor: '#f5f7fa',
+                backgroundColor: 'background.default',
                 py: 4
             }}
         >
@@ -31,7 +51,7 @@ export default function Layout() {
                         sx={{
                             fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
                             fontWeight: 800,
-                            color: '#1a1a1a',
+                            color: 'text.primary',
                             mb: 1,
                             letterSpacing: '-1px'
                         }}
@@ -42,7 +62,7 @@ export default function Layout() {
                         component="p"
                         sx={{
                             fontSize: '1rem',
-                            color: '#666',
+                            color: 'text.secondary',
                             maxWidth: 600,
                             mx: 'auto'
                         }}
@@ -51,37 +71,14 @@ export default function Layout() {
                     </Box>
                 </Box>
 
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 3
-                    }}
-                >
-                    {mockTables.map(item =>
-                        <AllinOne>
-                            <Tables
-                                key={item.id}
-                                rows={rows}
-                                columns={columns}
-                                fields={item.fields}
-                                paginationMode={item.pagination}
-                                checkBox={item.checkbox}
-                                filtering={item.filtering}
-                                sorting={item.sorting} />
+
+                <CustomTabs />
 
 
-                            {/* <Tables
-                            rows={rows}
-                            columns={columns}
-                            fields={mockTables[0].fields}
-                            paginationMode={true}
-                            checkBox={false}
-                        /> */}
-                        </AllinOne>
-                    )}
+                <Box sx={{ mt: 3 }}>
+                    {renderPage()}
                 </Box>
             </Container>
         </Box>
-    )
+    );
 }
