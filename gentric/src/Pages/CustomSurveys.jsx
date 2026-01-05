@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Container from '../Layout/Container.jsx';
 import AllinOne from '../Components/Gentric/AllinOne.jsx';
 import Tables from '../Components/Tables/GridTable.jsx';
 import useFetch from '../Hooks/Fetch.jsx';
@@ -15,39 +15,45 @@ export default function CustomSurveys() {
     const columns = data.columns || mockColumns;
 
     return (
-        <Box sx={{ p: 3, display: 'flex', flexDirection: 'row' }}>
-
-            <AllinOne
-                title={tableConfig.title}
-                titleIcons={tableConfig.titleIcons}
-                button={tableConfig.button}
-            >
-                <Tables
-                    rows={rows}
-                    columns={columns}
-                    fields={tableConfig.fields}
-                    paginationMode={tableConfig.pagination}
-                    checkBox={tableConfig.checkbox}
-                    filtering={tableConfig.filtering}
-                    sorting={tableConfig.sorting}
-                />
-            </AllinOne>
-            <AllinOne
-                title={tableConfig.title}
-                titleIcons={tableConfig.titleIcons}
-                button={tableConfig.button}
-            >
-                <Tables
-                    rows={rows}
-                    columns={columns}
-                    fields={tableConfig.fields}
-                    paginationMode={tableConfig.pagination}
-                    checkBox={tableConfig.checkbox}
-                    filtering={tableConfig.filtering}
-                    sorting={tableConfig.sorting}
-                />
-            </AllinOne>
-
-        </Box>
+        <Container>
+            {loading ? (
+                <Typography>Loading...</Typography>
+            ) : (
+                <AllinOne
+                    title={tableConfig.title}
+                    titleIcons={tableConfig.titleIcons}
+                    button={tableConfig.button}
+                >
+                    <Tables
+                        rows={rows}
+                        columns={columns}
+                        fields={tableConfig.fields}
+                        paginationMode={tableConfig.pagination}
+                        checkBox={tableConfig.checkbox}
+                        filtering={tableConfig.filtering}
+                        sorting={tableConfig.sorting}
+                    />
+                </AllinOne>
+            )}
+            {loading ? (
+                <Typography>Loading...</Typography>
+            ) : (
+                <AllinOne
+                    title={tableConfig.title}
+                    titleIcons={tableConfig.titleIcons}
+                    button={tableConfig.button}
+                >
+                    <Tables
+                        rows={rows}
+                        columns={columns}
+                        fields={tableConfig.fields}
+                        paginationMode={tableConfig.pagination}
+                        checkBox={tableConfig.checkbox}
+                        filtering={tableConfig.filtering}
+                        sorting={tableConfig.sorting}
+                    />
+                </AllinOne>
+            )}
+        </Container>
     );
 }

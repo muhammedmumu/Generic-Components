@@ -57,17 +57,7 @@ export default function Layout() {
                     >
                         Generic Components Dashboard
                     </Box>
-                    <Box
-                        component="p"
-                        sx={{
-                            fontSize: '1rem',
-                            color: 'text.secondary',
-                            maxWidth: 600,
-                            mx: 'auto'
-                        }}
-                    >
-                        Reusable data tables with dynamic columns and filtering
-                    </Box>
+
                 </Box>
 
 

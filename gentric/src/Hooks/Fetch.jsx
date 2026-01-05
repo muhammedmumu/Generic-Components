@@ -12,16 +12,24 @@ function useFetch() {
 
     useEffect(() => {
         setLoading(true);
+
+        // Helper function to fetch with fallback
+        const fetchWithFallback = async (url, fallbackData) => {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return await response.json();
+            } catch (error) {
+                // Silently fallback to mock data - API server is not required
+                return fallbackData;
+            }
+        };
+
+        // Try to fetch from API, fallback to mock data
         Promise.all([
-            fetch('http://localhost:3000/mockTables')
-                .then(res => res.json())
-                .catch(() => mockTablesData),
-            fetch('http://localhost:3000/columns')
-                .then(res => res.json())
-                .catch(() => mockColumns),
-            fetch('http://localhost:3000/rows')
-                .then(res => res.json())
-                .catch(() => mockRows),
+            fetchWithFallback('http://localhost:3000/mockTables', mockTablesData),
+            fetchWithFallback('http://localhost:3000/columns', mockColumns),
+            fetchWithFallback('http://localhost:3000/rows', mockRows),
         ])
             .then(([mockTables, columns, rows]) => {
                 setData({ mockTables, columns, rows });

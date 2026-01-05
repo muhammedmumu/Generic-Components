@@ -36,9 +36,9 @@ export default function Footer({ button = [], buttonIcons = {} }) {
             const isOutlined = config.variant === 'outlined';
             const colorScheme = config.colorScheme;
             const buttonSx = {
-                px: 3,
-                py: 1,
-                borderRadius: 2,
+                px: 2,
+                py: 0.5,
+                borderRadius: 1,
                 textTransform: 'none',
                 fontWeight: 600,
                 fontSize: '0.875rem',
@@ -81,8 +81,6 @@ export default function Footer({ button = [], buttonIcons = {} }) {
     return (
         <Box
             sx={{
-                mt: 2,
-                mb: 1,
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
