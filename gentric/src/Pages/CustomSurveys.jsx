@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Container from '../Layout/Container.jsx';
 import AllinOne from '../Components/Gentric/AllinOne.jsx';
 import Tables from '../Components/Tables/GridTable.jsx';
 import useFetch from '../Hooks/Fetch.jsx';
@@ -15,11 +15,7 @@ export default function CustomSurveys() {
     const columns = data.columns || mockColumns;
 
     return (
-        <Box sx={{ p: 3 }}>
-            <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-                Custom Surveys
-            </Typography>
-
+        <Container>
             {loading ? (
                 <Typography>Loading...</Typography>
             ) : (
@@ -39,6 +35,25 @@ export default function CustomSurveys() {
                     />
                 </AllinOne>
             )}
-        </Box>
+            {loading ? (
+                <Typography>Loading...</Typography>
+            ) : (
+                <AllinOne
+                    title={tableConfig.title}
+                    titleIcons={tableConfig.titleIcons}
+                    button={tableConfig.button}
+                >
+                    <Tables
+                        rows={rows}
+                        columns={columns}
+                        fields={tableConfig.fields}
+                        paginationMode={tableConfig.pagination}
+                        checkBox={tableConfig.checkbox}
+                        filtering={tableConfig.filtering}
+                        sorting={tableConfig.sorting}
+                    />
+                </AllinOne>
+            )}
+        </Container>
     );
 }

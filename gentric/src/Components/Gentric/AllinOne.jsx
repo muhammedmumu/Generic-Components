@@ -1,6 +1,8 @@
 import React from 'react'
 import Card from '@mui/material/Card'
+import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
+import Divider from '@mui/material/Divider'
 import Header from '../Header/Header.jsx'
 import Footer from '../Footer/Fotter.jsx'
 import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
@@ -12,53 +14,26 @@ export default function GentricTables({ children, title, titleIcons, button }) {
     const { data } = useFetch();
 
     return (
-        <Card
-            sx={{
-                p: 2,
-                width: '100%',
-                maxWidth: '100%',
-                height: 'fit-content',
-                mb: 3
-            }}
+        <Paper
             variant="outlined"
-            elevation={0}
+            elevation={3}
+            className="gentric-container"
         >
-            <Card
-                elevation={3}
-                sx={{
-                    borderRadius: '16px 16px 0 0',
-                    overflow: 'hidden',
-                    backgroundColor: 'background.paper'
-                }}
-            >
-                <Box
-                    sx={{
-                        p: 2,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 2,
-                        borderBottom: '1px solid',
-                        borderColor: 'divider',
-                        backgroundColor: 'background.default'
-                    }}
-                >
+            <Card className="gentric-card">
+                <Box className="gentric-header">
                     <Header
-                        header={data.mockTables.title || title}
-                        headerIcon={data.mockTables.titleIcons || titleIcons ? <StarsOutlinedIcon fontSize="large" color="primary" /> : null}
+                        header={data.mockTables?.title || title}
+                        headerIcon={data.mockTables?.titleIcons || titleIcons ? <StarsOutlinedIcon fontSize="large" color="primary" /> : null}
                     />
+                    <Divider />
                 </Box>
-                <Box
-                    sx={{
-                        height: 'calc(100% - 120px)',
-                        overflowY: 'auto',
-                        p: 2
-                    }}>
+                <Box className="gentric-content">
                     {children}
                 </Box>
             </Card>
-            <Box>
-                <Footer button={data.mockTables.button || button} />
+            <Box className="gentric-footer">
+                <Footer button={data.mockTables?.button || button} />
             </Box>
-        </Card >
+        </Paper>
     )
 }
