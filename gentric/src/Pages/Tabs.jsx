@@ -17,28 +17,7 @@ export default function CustomTabs() {
 
     return (
         <Box sx={{ borderBottom: 1, borderColor: theme.palette.divider }}>
-            <Tabs
-                value={currentValue}
-                onChange={handleChange}
-                TabIndicatorProps={{ style: { display: "none" } }}
-                sx={{
-                    "& .MuiTab-root": {
-                        textTransform: "none",
-                        fontWeight: 600,
-                        borderTopLeftRadius: `${theme.shape.borderRadius * 1.5}px`,
-                        borderTopRightRadius: `${theme.shape.borderRadius * 1.5}px`,
-                        backgroundColor: theme.palette.grey?.[200] || "#e8eaed",
-                        color: theme.palette.text.secondary,
-                        marginRight: 1,
-                        paddingX: 3,
-                        minHeight: "45px",
-                    },
-                    "& .Mui-selected": {
-                        backgroundColor: theme.palette.primary.light,
-                        color: theme.palette.primary.main,
-                    },
-                }}
-            >
+            <Tabs value={currentValue} onChange={handleChange}>
                 <Tab label="CUSTOM SURVEYS" />
                 <Tab label="EMAIL GROUPS" />
                 <Tab label="SURVEY DESIGNS" />

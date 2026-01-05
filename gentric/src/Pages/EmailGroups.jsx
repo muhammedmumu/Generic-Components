@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Container from '../Layout/Container.jsx';
 import AllinOne from '../Components/Gentric/AllinOne.jsx';
 import Tables from '../Components/Tables/GridTable.jsx';
 import useFetch from '../Hooks/Fetch.jsx';
@@ -15,11 +15,7 @@ export default function EmailGroups() {
     const columns = data.columns || mockColumns;
 
     return (
-        <Box sx={{ p: 3 }}>
-            <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-                Email Groups
-            </Typography>
-
+        <Container>
             {loading ? (
                 <Typography>Loading...</Typography>
             ) : (
@@ -39,6 +35,6 @@ export default function EmailGroups() {
                     />
                 </AllinOne>
             )}
-        </Box>
+        </Container>
     );
 }

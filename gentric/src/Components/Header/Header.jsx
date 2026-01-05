@@ -28,7 +28,6 @@ export default function Header({ header, icons = [], searchbar, filterbox, heade
         }}>
             <Box
                 sx={{
-                    mb: 2,
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
