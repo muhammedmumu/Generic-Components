@@ -106,32 +106,39 @@ const Override = (theme) => ({
     MuiButton: {
         styleOverrides: {
             root: {
-                fontSize: 11,
-                fontWeight: "500",
-                borderRadius: theme.spacing(0.5),
-                textTransform: "capitalize",
-                padding: theme.spacing(1, 2),
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                borderRadius: theme.spacing(1),
+                textTransform: 'none',
+                padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+                transition: 'all 0.3s',
+                '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                }
             },
             contained: {
-                color: "#fff",
+                color: '#fff',
                 backgroundColor: Primary,
-                "&:hover": {
+                '&:hover': {
                     backgroundColor: Primary,
                     opacity: 0.9,
                 },
             },
             outlined: {
+                border: 'none',
                 color: Primary,
                 borderColor: Primary,
-                "&:hover": {
+                '&:hover': {
+                    border: 'none',
                     borderColor: Primary,
-                    backgroundColor: "rgba(15, 169, 222, 0.04)",
+                    backgroundColor: 'rgba(15, 169, 222, 0.04)',
                 },
             },
             text: {
                 color: Primary,
-                "&:hover": {
-                    backgroundColor: "rgba(15, 169, 222, 0.04)",
+                '&:hover': {
+                    backgroundColor: 'rgba(15, 169, 222, 0.04)',
                 },
             },
         },
@@ -217,7 +224,7 @@ const Override = (theme) => ({
         styleOverrides: {
             root: {
                 borderColor: "#e0e0e0",
-                
+
             },
         },
     },

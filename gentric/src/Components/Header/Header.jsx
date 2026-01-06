@@ -1,23 +1,32 @@
-// ...existing code...
-import React from 'react'
-import Typography from '@mui/material/Typography'
-import IconButton from '@mui/material/IconButton'
-import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
-import FilterListIcon from '@mui/icons-material/FilterList'
-import EditIcon from '@mui/icons-material/Edit'
-import DeleteIcon from '@mui/icons-material/Delete'
-
-
+import FilterListIcon from '@mui/icons-material/FilterList';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Header({ header, icons = [], searchbar, filterbox, headerIcon }) {
 
 
     const renderIcons = () => {
         return icons.map(icon => {
-            if (icon === 'Edit') return <IconButton key="edit" aria-label="edit"><EditIcon /></IconButton>
-            if (icon === 'Filter') return <IconButton key="filter" aria-label="filter"><FilterListIcon /></IconButton>
-            if (icon === 'Delete') return <IconButton key="delete" aria-label="delete"><DeleteIcon /></IconButton>
+            if (icon === 'Edit') return (
+                <Tooltip key="edit" title="Edit" arrow>
+                    <IconButton aria-label="edit"><EditIcon /></IconButton>
+                </Tooltip>
+            );
+            if (icon === 'Filter') return (
+                <Tooltip key="filter" title="Filter" arrow>
+                    <IconButton aria-label="filter"><FilterListIcon /></IconButton>
+                </Tooltip>
+            );
+            if (icon === 'Delete') return (
+                <Tooltip key="delete" title="Delete" arrow>
+                    <IconButton aria-label="delete"><DeleteIcon /></IconButton>
+                </Tooltip>
+            );
             return null
         })
     }

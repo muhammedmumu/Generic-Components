@@ -25,25 +25,7 @@ export const Basic = {
 export const WithHeaderIcon = {
   args: {
     header: 'Dashboard',
-    headerIcon: {
-      "type": {
-        "type": {},
-        "compare": null
-      },
-
-      "key": null,
-
-      "props": {
-        "sx": {
-          "fontSize": 32,
-          "color": "primary.main",
-          "padding": 0
-        }
-      },
-
-      "_owner": null,
-      "_store": {}
-    },
+    headerIcon: <DashboardIcon sx={{ fontSize: 32, color: 'primary.main', padding: 0 }} />,
   },
 };
 

@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { useSearchParams } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
-export default function CustomTabs() {
+export default function CustomTabs({ tabs = [] }) {
     const [searchParams, setSearchParams] = useSearchParams();
     const theme = useTheme();
 
@@ -18,10 +18,9 @@ export default function CustomTabs() {
     return (
         <Box sx={{ borderBottom: 1, borderColor: theme.palette.divider }}>
             <Tabs value={currentValue} onChange={handleChange}>
-                <Tab label="CUSTOM SURVEYS" />
-                <Tab label="EMAIL GROUPS" />
-                <Tab label="SURVEY DESIGNS" />
-                <Tab label="EMAIL TEMPLATES" />
+                {tabs.map((tab, index) => (
+                    <Tab key={index} label={tab.label || tab} />
+                ))}
             </Tabs>
         </Box>
     );

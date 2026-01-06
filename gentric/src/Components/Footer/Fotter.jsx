@@ -1,95 +1,41 @@
-import Box from '@mui/material/Box'
-import React from 'react'
+import React from 'react';
+import Box from '@mui/material/Box';
+import Buttons from '../Button/Button';
+import SaveIcon from '@mui/icons-material/Save';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 import DownloadIcon from '@mui/icons-material/Download';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
-import Button from '@mui/material/Button';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
-const buttonConfig = {
-    Download: {
-        label: 'DownLoad',
-        variant: 'outlined',
-        icon: DownloadIcon,
-        colorScheme: 'primary'
-    },
-    Print: {
-        label: 'Print',
-        variant: 'outlined',
-        icon: PrintIcon,
-        colorScheme: 'secondary'
-    },
-    Share: {
-        label: 'Share',
-        variant: 'contained',
-        icon: ShareIcon,
-        colorScheme: 'primary'
-    }
+const Footer = ({ buttons = [], variant = 'outlined' }) => {
+  // Icon mapping for dynamic rendering
+  const iconMap = {
+    Download: <DownloadIcon />,
+    Print: <PrintIcon />,
+    Share: <ShareIcon />,
+    Save: <SaveIcon />,
+    Delete: <DeleteIcon />,
+    Send: <SendIcon />,
+    Edit: <EditIcon />,
+    View: <VisibilityIcon />,
+  };
+
+  return (
+    <Box sx={{ display: 'flex', gap: 1, justifyContent: 'space-between', padding: 2 }}>
+      {buttons.map((buttonLabel, index) => (
+        <Buttons
+          key={index}
+          label={buttonLabel}
+          variant={variant}
+          startIcon={iconMap[buttonLabel]}
+          onClick={() => console.log(`${buttonLabel} clicked`)}
+        />
+      ))}
+    </Box>
+  );
 };
 
-export default function Footer({ button = [], buttonIcons = {} }) {
-    const handleRender = () => {
-        return button.map((btn, idx) => {
-            const config = buttonConfig[btn];
-            if (!config) return null;
-
-            const IconComponent = buttonIcons[btn] || config.icon;
-            const isOutlined = config.variant === 'outlined';
-            const colorScheme = config.colorScheme;
-            const buttonSx = {
-                px: 2,
-                py: 0.5,
-                borderRadius: 1,
-                textTransform: 'none',
-                fontWeight: 600,
-                fontSize: '0.875rem',
-                transition: 'all 0.3s',
-                '&:hover': {
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
-                }
-            };
-            return (
-                <Box key={idx}>
-                    <Button
-                        variant={config.variant}
-                        startIcon={<IconComponent />}
-                        sx={{
-                            ...buttonSx,
-                            ...(isOutlined ? {
-                                border: 'none',
-                                color: `${colorScheme}.main`,
-                                '&:hover': {
-                                    ...buttonSx['&:hover'],
-                                    backgroundColor: `${colorScheme}.light`,
-                                    border: 'none'
-                                }
-                            } : {
-                                backgroundColor: `${colorScheme}.main`,
-                                '&:hover': {
-                                    ...buttonSx['&:hover'],
-                                    backgroundColor: `${colorScheme}.dark`
-                                }
-                            })
-                        }}
-                    >
-                        {config.label}
-                    </Button>
-                </Box>
-            );
-        });
-    };
-    return (
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                gap: 2,
-                flexWrap: 'wrap'
-            }}
-        >
-            {handleRender()}
-        </Box>
-    )
-}
-
+export default Footer;
