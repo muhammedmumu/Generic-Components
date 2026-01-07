@@ -2,16 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 const Buttons = ({
-  label,
-  onClick,
-  variant = 'outlined',
-  size = 'medium',
-  disabled = false,
-  startIcon = null,
-  endIcon = null,
-  className = '',
-  ...props
-}) => {
+  label, onClick, variant = 'outlined', size = 'medium', disabled = false, startIcon = null, endIcon = null, className = '', ...props }) => {
   return (
     <Button
       className={className}

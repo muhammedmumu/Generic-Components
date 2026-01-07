@@ -126,7 +126,7 @@ const Override = (theme) => ({
                 },
             },
             outlined: {
-                border: 'none',
+                // border: '',
                 color: Primary,
                 borderColor: Primary,
                 '&:hover': {

@@ -23,13 +23,13 @@ const iconMap = {
 
 export default function GentricTables({ children, title, titleIcons, button, headerIcons = [] }) {
     const { data } = useFetch();
-    
+
     // Handle titleIcons as object or boolean for backwards compatibility
     const titleIconConfig = typeof titleIcons === 'object' ? titleIcons : { icons: titleIcons };
     const showTitleIcon = data.mockTables?.titleIcons?.icons || titleIconConfig.icons;
     const iconType = data.mockTables?.titleIcons?.TypeIcon || titleIconConfig.TypeIcon || 'Stars';
     const IconComponent = iconMap[iconType] || StarsOutlinedIcon;
-    
+
     return (
         <Paper
             variant="outlined"
@@ -55,3 +55,10 @@ export default function GentricTables({ children, title, titleIcons, button, hea
         </Paper>
     )
 }
+
+{/* <Box className="gentric-footer">
+                <Footer >
+                    <Buttons label="Download" />
+                    <Buttons variant='contained' label="Save" />
+                </Footer>
+            </Box> */}

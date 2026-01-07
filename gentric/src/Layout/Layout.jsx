@@ -96,6 +96,7 @@ export default function Layout() {
                         titleIcons={{ icons: true, TypeIcon: 'People' }}
                         headerIcons={['Edit', 'Delete']}
                         button={['Save', 'View']}
+                        variant="contained"
                     >
 
                         <Box sx={{ mb: 3 }}>
@@ -104,11 +105,13 @@ export default function Layout() {
                                     { label: 'Overview' },
                                     { label: 'Analytics' },
                                     { label: 'Reports' },
+                                    { label: 'Settings' },
                                     { label: 'Settings' }
                                 ]}
                             />
                         </Box>
                     </AllinOne>
+
                 </Box>
             </Box>
         </Container>
