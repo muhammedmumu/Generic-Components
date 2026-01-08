@@ -39,3 +39,7 @@ export const adminDashIconBgColor = "#5ba4f4";
 // Tab Colors
 export const TabSelectedBg = "#0ea2b63f"; // Cyan with low opacity
 export const TabSelectedText = "#484848ff"; // Dark gray/Primary color for selected tab text
+
+// Text Colors
+export const TextPrimary = "#000000";
+export const TextSecondary = "#666666";

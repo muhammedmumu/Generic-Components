@@ -74,6 +74,24 @@ export const mockTables = [
         onSelectMode: true,
         modeChange: false,
         render: "dashboard"
+    },
+    {
+        id: 5,
+        title: "Employee Dashboard",
+        icons: true,
+        titleIcons: true,
+        fields: ['id', 'hospital_name', 'job_title', 'gender', 'email_address'],
+        button: ["Download", "Print", "Share"],
+        pagination: true,
+        checkbox: false,
+        sorting: false,
+        filtering: true,
+        rowSelection: "single",
+        loading: false,
+        sortingMode: "client",
+        onSelectMode: true,
+        modeChange: false,
+        render: "dashboard"
     }
 ];
 

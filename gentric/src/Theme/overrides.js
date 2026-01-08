@@ -4,6 +4,8 @@ import {
     DataGridAltRowColor,
     TabSelectedBg,
     TabSelectedText,
+    TextPrimary,
+    Secondary,
 } from "./constants";
 
 
@@ -55,12 +57,20 @@ const Override = (theme) => ({
                 "& .MuiTablePagination-displayedRows": {
                     fontSize: "11px",
                     fontWeight: 500,
+
                 },
                 "& .MuiDataGrid-cell": {
                     fontWeight: 500,
                     fontSize: "11px",
-                    color: "#666666",
+                    color: TextPrimary,
                     border: "none",
+                    borderRadius:"20px"
+                   
+                },
+                "&.MuiDataGrid-root .MuiDataGrid-container--top [role=row]":{
+                    backgroundColor: "#ffffff",
+                    borderRadius:"5px"
+                    
                 },
                 "& .MuiDataGrid-columnHeaders": {
                     backgroundColor: "transparent",
@@ -98,17 +108,18 @@ const Override = (theme) => ({
                 "& .MuiDataGrid-cell--withRenderer.Mui-selected": {
                     backgroundColor: "transparent",
                 },
-                "& .MuiDataGrid-row:focus, & .MuiDataGrid-row:focus-within": {
+                "& .MuiDataGrid-row:focus, &.MuiDataGrid-row:focus-within": {
                     outline: "none",
                 },
                 "& .MuiDataGrid-columnHeaderTitle": {
                     fontWeight: "700",
                     fontSize: 12,
-                    color: "black",
+                    color: TextPrimary,
                     textTransform: "uppercase",
                 },
                 "& .MuiDataGrid-footerContainer": {
                     fontSize: 12,
+                    color: TextPrimary,
                 },
             },
         },
@@ -133,6 +144,17 @@ const Override = (theme) => ({
                 backgroundColor: Primary,
                 '&:hover': {
                     backgroundColor: Primary,
+                    opacity: 0.9,
+                },
+            },
+            containedSecondary: {
+                color: "#fff",
+                backgroundColor: Secondary,
+                "& .MuiButton-startIcon": {
+                    color: "#fff",
+                },
+                "&:hover": {
+                    backgroundColor: Secondary,
                     opacity: 0.9,
                 },
             },
@@ -169,16 +191,17 @@ const Override = (theme) => ({
     MuiCard: {
         styleOverrides: {
             root: {
-                boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
-                borderRadius: 12,
-                elevation: 0,
+                boxShadow: "2px 2px 8px rgba(0, 0, 0, 0.2)",
+                elevation: 3,
+              
                 "&.gentric-card": {
+
                     "& .gentric-header": {
                         padding: theme.spacing(2),
                         paddingBottom: 0,
                         display: "flex",
                         flexDirection: "column",
-                        gap: theme.spacing(2),
+                        // gap: theme.spacing(2),
                     },
                     "& .gentric-content": {
                         height: "calc(100% - 120px)",
@@ -194,11 +217,13 @@ const Override = (theme) => ({
     MuiPaper: {
         styleOverrides: {
             root: {
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+                border:" solid 1px #e0e0e0",
                 "&.gentric-container": {
                     width: "auto",
                     height: "fit-content",
                     marginBottom: theme.spacing(3),
+                    elevation: 0,
+                    boxShadow: "none",
                     "& .gentric-footer": {
                         padding: theme.spacing(2),
                     },
