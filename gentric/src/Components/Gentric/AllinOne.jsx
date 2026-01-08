@@ -15,8 +15,7 @@ export default function GentricTables({ children, title, titleIcons, button }) {
 
     return (
         <Paper
-            variant="outlined"
-            elevation={3}
+
             className="gentric-container"
         >
             <Card className="gentric-card">

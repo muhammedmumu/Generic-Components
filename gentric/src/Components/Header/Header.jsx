@@ -40,29 +40,16 @@ export default function Header({ header, icons = [], searchbar, filterbox, heade
                     alignItems: 'center',
                     gap: 1
                 }}>
-                    <Box sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        {headerIcon}
-                    </Box>
-                    <Box>
-                        <Typography
-                            variant="h3"
-                            sx={{
-                                p: '2px',
-                                fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' },
-                                fontWeight: 700,
-                                textTransform: 'capitalize',
-                                color: 'text.primary',
-                                letterSpacing: '-0.5px',
-                                lineHeight: 1.2
-                            }}
-                        >
-                            {header}
-                        </Typography>
-                    </Box>
+
+                    {headerIcon}
+
+
+                    <Typography
+                        variant="h3"
+                    >
+                        {header}
+                    </Typography>
+
                 </Box>
                 <Box
                     sx={{

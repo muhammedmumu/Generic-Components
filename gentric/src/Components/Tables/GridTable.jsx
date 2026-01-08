@@ -8,7 +8,7 @@ export default function Tables({ rows, columns, fields, paginationMode, checkBox
     const gridColumns = selectedColumns.map(col => ({
         ...col,
         flex: 1,
-        minWidth: 120,
+        minWidth: 100,
         headerAlign: 'center',
         align: 'center',
         sortable: sorting,
@@ -20,9 +20,10 @@ export default function Tables({ rows, columns, fields, paginationMode, checkBox
                 pagination: { paginationModel: { page: 0, pageSize: 5 } },
             },
             pageSizeOptions: [5, 10],
+            pagination: true,
         }
         : {
-            hideFooterPagination: true,
+            pagination: false,
         };
 
 
@@ -35,7 +36,7 @@ export default function Tables({ rows, columns, fields, paginationMode, checkBox
                 checkboxSelection={checkBox}
                 disableColumnFilter={!filtering}
                 disableColumnMenu={!filtering && !sorting}
-
+                disableColumnSelector={!filtering && !sorting}
                 sortingMode="client"
                 columnHeaderHeight={56}
                 slotProps={{
@@ -44,6 +45,7 @@ export default function Tables({ rows, columns, fields, paginationMode, checkBox
                         disableShowAllButton: true,
                     },
                 }}
+
             />
         </Box>
     );

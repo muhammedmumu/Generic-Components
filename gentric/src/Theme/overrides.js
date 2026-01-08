@@ -4,6 +4,8 @@ import {
     DataGridAltRowColor,
     TabSelectedBg,
     TabSelectedText,
+    TextPrimary,
+    Secondary,
 } from "./constants";
 
 
@@ -55,15 +57,23 @@ const Override = (theme) => ({
                 "& .MuiTablePagination-displayedRows": {
                     fontSize: "11px",
                     fontWeight: 500,
+
                 },
                 "& .MuiDataGrid-cell": {
                     fontWeight: 500,
                     fontSize: "11px",
-                    color: "#666666",
+                    color: TextPrimary,
                     border: "none",
+                    borderRadius:"20px"
+                   
+                },
+                "&.MuiDataGrid-root .MuiDataGrid-container--top [role=row]":{
+                    backgroundColor: "#ffffff",
+                    borderRadius:"5px"
+                    
                 },
                 "& .MuiDataGrid-columnHeaders": {
-                    backgroundColor: "#eeeeee",
+                    borderBottom:"none",
                     outline: "none",
                 },
                 "& .MuiDataGrid-columnHeader:focus-within": {
@@ -87,17 +97,18 @@ const Override = (theme) => ({
                 "& .MuiDataGrid-cell--withRenderer.Mui-selected": {
                     backgroundColor: "transparent",
                 },
-                "& .MuiDataGrid-row:focus, & .MuiDataGrid-row:focus-within": {
+                "& .MuiDataGrid-row:focus, &.MuiDataGrid-row:focus-within": {
                     outline: "none",
                 },
                 "& .MuiDataGrid-columnHeaderTitle": {
                     fontWeight: "700",
                     fontSize: 12,
-                    color: "black",
+                    color: TextPrimary,
                     textTransform: "uppercase",
                 },
                 "& .MuiDataGrid-footerContainer": {
                     fontSize: 12,
+                    color: TextPrimary,
                 },
             },
         },
@@ -106,30 +117,68 @@ const Override = (theme) => ({
     MuiButton: {
         styleOverrides: {
             root: {
-                fontSize: 11,
-                fontWeight: "500",
-                borderRadius: theme.spacing(0.5),
-                textTransform: "capitalize",
+                fontSize: "subtitle2",
+                fontWeight: 550,
+                borderRadius: theme.spacing(1),
+                textTransform: "none",
                 padding: theme.spacing(1, 2),
+                color: TextPrimary,
+                border: "none",
+                transition: "all 0.3s",
+                "& .MuiButton-startIcon": {
+                    marginRight: theme.spacing(1),
+                },
+                "&:hover": {
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                },
             },
             contained: {
                 color: "#fff",
                 backgroundColor: Primary,
+                "& .MuiButton-startIcon": {
+                    color: "#fff",
+                },
                 "&:hover": {
                     backgroundColor: Primary,
                     opacity: 0.9,
                 },
             },
-            outlined: {
-                color: Primary,
-                borderColor: Primary,
+            containedSecondary: {
+                color: "#fff",
+                backgroundColor: Secondary,
+                "& .MuiButton-startIcon": {
+                    color: "#fff",
+                },
                 "&:hover": {
-                    borderColor: Primary,
+                    backgroundColor: Secondary,
+                    opacity: 0.9,
+                },
+            },
+            outlined: {
+                border: "none",
+                "& .MuiButton-startIcon": {
+                    color: Primary,
+                },
+                "&:hover": {
                     backgroundColor: "rgba(15, 169, 222, 0.04)",
+                    border: "none",
+                },
+            },
+            outlinedSecondary: {
+                border: "none",
+                "& .MuiButton-startIcon": {
+                    color: Secondary,
+                },
+                "&:hover": {
+                    backgroundColor: "rgba(239, 59, 58, 0.04)",
+                    border: "none",
                 },
             },
             text: {
-                color: Primary,
+                "& .MuiButton-startIcon": {
+                    color: Primary,
+                },
                 "&:hover": {
                     backgroundColor: "rgba(15, 169, 222, 0.04)",
                 },
@@ -151,16 +200,17 @@ const Override = (theme) => ({
     MuiCard: {
         styleOverrides: {
             root: {
-                boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
-                borderRadius: 12,
-                elevation: 0,
+                boxShadow: "2px 2px 8px rgba(0, 0, 0, 0.2)",
+                elevation: 3,
+              
                 "&.gentric-card": {
+
                     "& .gentric-header": {
                         padding: theme.spacing(2),
                         paddingBottom: 0,
                         display: "flex",
                         flexDirection: "column",
-                        gap: theme.spacing(2),
+                        // gap: theme.spacing(2),
                     },
                     "& .gentric-content": {
                         height: "calc(100% - 120px)",
@@ -176,11 +226,13 @@ const Override = (theme) => ({
     MuiPaper: {
         styleOverrides: {
             root: {
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+                border:" solid 1px #e0e0e0",
                 "&.gentric-container": {
                     width: "auto",
                     height: "fit-content",
                     marginBottom: theme.spacing(3),
+                    elevation: 0,
+                    boxShadow: "none",
                     "& .gentric-footer": {
                         padding: theme.spacing(2),
                     },
@@ -217,6 +269,8 @@ const Override = (theme) => ({
         styleOverrides: {
             root: {
                 borderColor: "#e0e0e0",
+                marginTop: theme.spacing(2),
+              
                 
             },
         },
