@@ -63,9 +63,20 @@ const Override = (theme) => ({
                     border: "none",
                 },
                 "& .MuiDataGrid-columnHeaders": {
-                    backgroundColor: "#eeeeee",
+                    backgroundColor: "transparent",
                     outline: "none",
                 },
+                "& .MuiDataGrid-cell": {
+                    fontWeight: 500,
+                    fontSize: "11px",
+                    color: "#666666",
+                    border: "none",
+                },
+                "& .MuiDataGrid-columnHeader": {
+                    borderRight: 0,
+                    borderColor: "divider",
+                },
+                borderRadius: 0,
                 "& .MuiDataGrid-columnHeader:focus-within": {
                     outline: "none",
                 },

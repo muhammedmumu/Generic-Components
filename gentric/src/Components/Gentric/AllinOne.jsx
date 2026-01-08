@@ -11,7 +11,8 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import Header from '../Header/Header.jsx';
 import Footer from '../Footer/Fotter.jsx';
 import useFetch from '../../Hooks/Fetch.jsx';
-
+import Icons from '../IconsButtons/IconsButtons.jsx';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 const iconMap = {
     'Stars': StarsOutlinedIcon,
     'Dashboard': DashboardIcon,
@@ -25,10 +26,16 @@ export default function GentricTables({ children, title, titleIcons, button, hea
     const { data } = useFetch();
 
     // Handle titleIcons as object or boolean for backwards compatibility
-    const titleIconConfig = typeof titleIcons === 'object' ? titleIcons : { icons: titleIcons };
-    const showTitleIcon = data.mockTables?.titleIcons?.icons || titleIconConfig.icons;
-    const iconType = data.mockTables?.titleIcons?.TypeIcon || titleIconConfig.TypeIcon || 'Stars';
-    const IconComponent = iconMap[iconType] || StarsOutlinedIcon;
+    // const titleIconConfig = typeof titleIcons === 'object' ? titleIcons : { icons: titleIcons };
+    // const showTitleIcon = data.mockTables?.titleIcons?.icons || titleIconConfig.icons;
+    // const iconType = data.mockTables?.titleIcons?.TypeIcon || titleIconConfig.TypeIcon || 'Stars';
+    // const IconComponent = iconMap[iconType] || StarsOutlinedIcon;\
+
+
+    const handleClick = () => {
+        console.log("Icon clicked");
+    }
+
 
     return (
         <Paper
@@ -38,13 +45,17 @@ export default function GentricTables({ children, title, titleIcons, button, hea
         >
             <Card className="gentric-card">
                 <Box className="gentric-header">
+
                     <Header
-                        header={data.mockTables?.title || title}
-                        headerIcon={showTitleIcon ? <IconComponent fontSize="large" color="primary" /> : null}
-                        icons={data.mockTables?.headerIcons || headerIcons}
+                        title="Hello World"
+                        titleIcon={<FavoriteIcon />}
+                        actions={<Icons icon={<FavoriteIcon />} aria="favorite-icon" color="primary" size="medium"
+                            onClicks={handleClick} />}
                     />
+
                     <Divider />
                 </Box>
+
                 <Box className="gentric-content">
                     {children}
                 </Box>
@@ -56,9 +67,11 @@ export default function GentricTables({ children, title, titleIcons, button, hea
     )
 }
 
-{/* <Box className="gentric-footer">
-                <Footer >
-                    <Buttons label="Download" />
-                    <Buttons variant='contained' label="Save" />
-                </Footer>
-            </Box> */}
+// {
+//     <Box className="gentric-footer">
+//         <Footer >
+//             <Buttons label="Download" />
+//             <Buttons variant='contained' label="Save" />
+//         </Footer>
+//     </Box>
+// }
