@@ -17,7 +17,7 @@ import {
 } from "./constants";
 
 const theme = createTheme({
-cssVariables:true,
+    cssVariables: true,
 
     breakpoints: {
         values: {
@@ -62,19 +62,19 @@ cssVariables:true,
         },
         grey: {
             [50]: "#E4E4E4",
-            [100]: "#d3d3d34e",
+            100: "#EFEFEF",
+            200: "#D5D6D8",
+            300: "#A8B0B8",
+            400: "#74808F",
+            500: "#4F5866",
+            600: "#293444",
+            700: "#181E27",
             [150]: "#7c92aa",
-            [200]: "#8f95a34d",
             [250]: "#e2e2eb",
-            [300]: "#EAEAED",
             [350]: "#6b6d8229",
-            [400]: PrimaryContrast,
             [450]: "#6b6d828A",
-            [500]: "#8F95A3",
             [550]: "#8F95A324",
-            [600]: "#6b6d821a",
             [650]: "#e0e0e0",
-            [700]: "#6B6D82",
             [800]: "#bdbecc",
             [850]: "#6b6d82",
             [900]: "#6b6d8242",
@@ -136,14 +136,18 @@ cssVariables:true,
             paper: "#ffffff",
         },
         text: {
-            primary: "#333",
-            secondary: "#666",
+            primary: "#181E27",
+            secondary: "#74808F",
+            disabled: "#A8B0B8",
         },
         warning: {
-            main: "#ff9800",
+            main: "#FFD54F",
             secondary: "#fda844",
             [100]: "#ff9800",
             [500]: "#663c00",
+        },
+        error: {
+            main: "#E03842",
         },
         danger: {
             main: "#c2212a",
@@ -154,7 +158,7 @@ cssVariables:true,
         },
     },
     typography: {
-        fontFamily: "Poppins, Arial, sans-serif",
+        fontFamily: "Inter, Archivo, sans-serif",
         fontWeightBold: 700,
         fontWeightMedium: 500,
         fontWeightRegular: 400,
@@ -163,20 +167,25 @@ cssVariables:true,
             fontWeight: 500,
         },
         h1: {
-            fontSize: "1.938rem", // 31px
+            fontSize: "74px",
             fontWeight: 700,
+            lineHeight: 0.97, // 72px / 74px
         },
         h2: {
-            fontSize: "1.5rem", // 24px
+            fontSize: "32px",
             fontWeight: 700,
+            lineHeight: 2.25, // 72px / 32px
         },
         h3: {
-            fontSize: "1.25rem", // 20px
-            fontWeight: 600,
+            fontSize: "24px",
+            fontWeight: 700,
+            lineHeight: 1, // 24px / 24px
         },
         h4: {
-            fontSize: "1.125rem", // 18px
-            fontWeight: 600,
+            fontSize: "16px",
+            fontWeight: 700,
+            lineHeight: 1.5, // 24px / 16px
+            fontFamily: "Archivo",
         },
         h5: {
             fontSize: "1rem", // 16px
@@ -187,12 +196,14 @@ cssVariables:true,
             fontWeight: 600,
         },
         body1: {
-            fontSize: "1rem", // 16px
-            fontWeight: 400,
+            fontSize: "14px",
+            fontWeight: 500,
+            lineHeight: 1.43, // 20px / 14px
         },
         body2: {
-            fontSize: "0.875rem", // 14px
+            fontSize: "14px",
             fontWeight: 400,
+            lineHeight: 1.43, // 20px / 14px
         },
         subtitle1: {
             fontSize: "0.75rem", // 12px

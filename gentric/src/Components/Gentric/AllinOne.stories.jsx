@@ -9,6 +9,7 @@ export default {
   parameters: {
     layout: 'padded',
   },
+  tags: ['autodocs'],
 };
 
 const Template = (args) => <AllinOne {...args} />;

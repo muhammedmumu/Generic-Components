@@ -73,9 +73,20 @@ const Override = (theme) => ({
                     
                 },
                 "& .MuiDataGrid-columnHeaders": {
-                    borderBottom:"none",
+                    backgroundColor: "transparent",
                     outline: "none",
                 },
+                "& .MuiDataGrid-cell": {
+                    fontWeight: 500,
+                    fontSize: "11px",
+                    color: "#666666",
+                    border: "none",
+                },
+                "& .MuiDataGrid-columnHeader": {
+                    borderRight: 0,
+                    borderColor: "divider",
+                },
+                borderRadius: 0,
                 "& .MuiDataGrid-columnHeader:focus-within": {
                     outline: "none",
                 },
@@ -117,29 +128,21 @@ const Override = (theme) => ({
     MuiButton: {
         styleOverrides: {
             root: {
-                fontSize: "subtitle2",
-                fontWeight: 550,
+                fontSize: '0.875rem',
+                fontWeight: 600,
                 borderRadius: theme.spacing(1),
-                textTransform: "none",
-                padding: theme.spacing(1, 2),
-                color: TextPrimary,
-                border: "none",
-                transition: "all 0.3s",
-                "& .MuiButton-startIcon": {
-                    marginRight: theme.spacing(1),
-                },
-                "&:hover": {
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                },
+                textTransform: 'none',
+                padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+                transition: 'all 0.3s',
+                '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                }
             },
             contained: {
-                color: "#fff",
+                color: '#fff',
                 backgroundColor: Primary,
-                "& .MuiButton-startIcon": {
-                    color: "#fff",
-                },
-                "&:hover": {
+                '&:hover': {
                     backgroundColor: Primary,
                     opacity: 0.9,
                 },
@@ -156,31 +159,19 @@ const Override = (theme) => ({
                 },
             },
             outlined: {
-                border: "none",
-                "& .MuiButton-startIcon": {
-                    color: Primary,
-                },
-                "&:hover": {
-                    backgroundColor: "rgba(15, 169, 222, 0.04)",
-                    border: "none",
-                },
-            },
-            outlinedSecondary: {
-                border: "none",
-                "& .MuiButton-startIcon": {
-                    color: Secondary,
-                },
-                "&:hover": {
-                    backgroundColor: "rgba(239, 59, 58, 0.04)",
-                    border: "none",
+                // border: '',
+                color: Primary,
+                borderColor: Primary,
+                '&:hover': {
+                    border: 'none',
+                    borderColor: Primary,
+                    backgroundColor: 'rgba(15, 169, 222, 0.04)',
                 },
             },
             text: {
-                "& .MuiButton-startIcon": {
-                    color: Primary,
-                },
-                "&:hover": {
-                    backgroundColor: "rgba(15, 169, 222, 0.04)",
+                color: Primary,
+                '&:hover': {
+                    backgroundColor: 'rgba(15, 169, 222, 0.04)',
                 },
             },
         },
@@ -269,9 +260,7 @@ const Override = (theme) => ({
         styleOverrides: {
             root: {
                 borderColor: "#e0e0e0",
-                marginTop: theme.spacing(2),
-              
-                
+
             },
         },
     },

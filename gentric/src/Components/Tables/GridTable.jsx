@@ -1,52 +1,21 @@
-// ...existing code...
-import React from 'react';
+import { useMemo } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
-
-export default function Tables({ rows, columns, fields, paginationMode, checkBox, filtering = true, sorting = true }) {
-    const selectedColumns = columns.filter(c => fields.includes(c.field));
-    const gridColumns = selectedColumns.map(col => ({
-        ...col,
-        flex: 1,
-        minWidth: 100,
-        headerAlign: 'center',
-        align: 'center',
-        sortable: sorting,
-        filterable: filtering
-    }));
-    const paginationProps = paginationMode
-        ? {
-            initialState: {
-                pagination: { paginationModel: { page: 0, pageSize: 5 } },
-            },
-            pageSizeOptions: [5, 10],
-            pagination: true,
-        }
-        : {
-            pagination: false,
-        };
-
-
+import TableHook from '../Tables/Hooks/Table';
+export default function Tables({ rows = [], columns = [], fields = [], paginationMode = true, checkBox = false, filtering = true, sorting = true, ...rest }) {
+    const { paginationProps, gridColumns } = TableHook({ columns, fields, sorting, filtering, paginationMode });
     return (
-        <Box sx={{ width: '100%', height: '400px', overflow: 'hidden' }}>
+        <Box sx={{ width: '100%', height: 'fit-content', minHeight: 400 }}>
             <DataGrid
                 rows={rows}
                 columns={gridColumns}
-                {...paginationProps}
                 checkboxSelection={checkBox}
                 disableColumnFilter={!filtering}
-                disableColumnMenu={!filtering && !sorting}
-                disableColumnSelector={!filtering && !sorting}
-                sortingMode="client"
+                disableColumnMenu={!(filtering || sorting)}
+                sortingMode={sorting ? "client" : "none"}
                 columnHeaderHeight={56}
-                slotProps={{
-                    columnsPanel: {
-                        disableHideAllButton: true,
-                        disableShowAllButton: true,
-                    },
-                }}
-
-            />
+                sx={{ '& .MuiDataGrid-columnHeaders': { backgroundColor: 'transparent', }, borderRadius: 0, }}
+                {...paginationProps} />
         </Box>
     );
 }

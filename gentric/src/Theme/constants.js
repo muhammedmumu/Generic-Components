@@ -1,20 +1,20 @@
 // Primary Colors
-export const Primary = "#0fa9de";
-export const PrimaryLight = "#0da9eb0f";
+export const Primary = "#4BA5FF";
+export const PrimaryLight = "#B280E4";
 export const PrimaryMedium = "#0a3e66";
-export const PrimaryDark = "#004639";
+export const PrimaryDark = "#181E27";
 export const PrimaryContrast = "#f5f5f5";
 
 // Secondary Colors
-export const Secondary = "#ef3b3a";
+export const Secondary = "#20C1B8";
 export const SecondaryDark = "#820a09";
 
 // Success Colors
-export const success = "#7BB42D";
+export const success = "#70DE7B";
 
 // Background Colors
-export const Background = "#EFF4F7";
-export const ThemeBg = "#F5F5F5";
+export const Background = "#EFEFEF";
+export const ThemeBg = "#FFFFFF";
 
 // Grey Colors
 export const GreyDark = "#dbdbdb";
