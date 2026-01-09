@@ -10,6 +10,7 @@ import PrintIcon from '@mui/icons-material/PrintOutlined';
 import SaveIcon from '@mui/icons-material/SaveOutlined';
 import VisibilityIcon from '@mui/icons-material/VisibilityOutlined';
 import useFetch from '../Hooks/Fetch';
+import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
 
 
 export default function Layout() {
@@ -72,6 +73,7 @@ export default function Layout() {
                 <Box sx={{ flex: '1 1 calc(50% - 12px)', minWidth: '400px' }}>
                     <AllinOne
                         title="Team Member Rank"
+                        titleIcons={<StarsOutlinedIcon />}
                         headerIcons={['Filter']}
                         button={[
                             { label: 'Download', startIcon: <DownloadIcon />, color: '#0fa9de' },
