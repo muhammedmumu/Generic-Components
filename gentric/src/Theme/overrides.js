@@ -65,6 +65,9 @@ const Override = (theme) => ({
                 "& .MuiDataGrid-columnHeaders": {
                     backgroundColor: "transparent",
                     outline: "none",
+                    position: "sticky",
+                    top: 0,
+                    zIndex: 1,
                 },
                 "& .MuiDataGrid-cell": {
                     fontWeight: 500,
@@ -123,9 +126,18 @@ const Override = (theme) => ({
                 textTransform: 'none',
                 padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
                 transition: 'all 0.3s',
+                '& .MuiButton-startIcon, & .MuiButton-endIcon': {
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid currentColor',
+                    borderRadius: '4px',
+                    padding: '4px 8px',
+                    margin: '0 4px',
+                },
                 '&:hover': {
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                 }
             },
             contained: {
@@ -137,12 +149,12 @@ const Override = (theme) => ({
                 },
             },
             outlined: {
-                // border: '',
+                border: 'none',
                 color: Primary,
-                borderColor: Primary,
+                borderColor: 'transparent',
                 '&:hover': {
                     border: 'none',
-                    borderColor: Primary,
+                    borderColor: 'transparent',
                     backgroundColor: 'rgba(15, 169, 222, 0.04)',
                 },
             },
@@ -185,6 +197,7 @@ const Override = (theme) => ({
                         overflowY: "auto",
                         padding: theme.spacing(2),
                         paddingTop: 0,
+                        paddingBottom: 0,
                     },
                 },
             },

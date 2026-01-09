@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { useInputProps } from './Text.js';
+import { useInputProps } from './Text.jsx';
 
 export default function GentricTextField({
     icon,

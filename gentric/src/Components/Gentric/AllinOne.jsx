@@ -13,28 +13,23 @@ import Footer from '../Footer/Fotter.jsx';
 import useFetch from '../../Hooks/Fetch.jsx';
 import Icons from '../IconsButtons/IconsButtons.jsx';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const iconMap = {
-    'Stars': StarsOutlinedIcon,
-    'Dashboard': DashboardIcon,
-    'TableChart': TableChartIcon,
-    'Assessment': AssessmentIcon,
-    'People': PeopleIcon,
-    'Inventory': InventoryIcon,
-};
+import Report from '@mui/icons-material/AnalyticsOutlined';
+import PersonIcon from '@mui/icons-material/Person';
+import GentricTextField from '../TextField/TextField.jsx';
+import Buttons from '../Button/Button.jsx';
+// const iconMap = {
+//     'Stars': StarsOutlinedIcon,
+//     'Dashboard': DashboardIcon,
+//     'TableChart': TableChartIcon,
+//     'Assessment': AssessmentIcon,
+//     'People': PeopleIcon,
+//     'Inventory': InventoryIcon,
+// };
 
-export default function GentricTables({ children, title, titleIcons, button, headerIcons = [] }) {
+export default function GentricTables({ children, title, titleIcons, button, btnIcon, headerIcons = [] }) {
     const { data } = useFetch();
 
-    // Handle titleIcons as object or boolean for backwards compatibility
-    // const titleIconConfig = typeof titleIcons === 'object' ? titleIcons : { icons: titleIcons };
-    // const showTitleIcon = data.mockTables?.titleIcons?.icons || titleIconConfig.icons;
-    // const iconType = data.mockTables?.titleIcons?.TypeIcon || titleIconConfig.TypeIcon || 'Stars';
-    // const IconComponent = iconMap[iconType] || StarsOutlinedIcon;\
 
-
-    const handleClick = () => {
-        console.log("Icon clicked");
-    }
 
 
     return (
@@ -42,26 +37,42 @@ export default function GentricTables({ children, title, titleIcons, button, hea
             variant="outlined"
             className="gentric-container"
         >
-            <Card className="gentric-card">
+            <Card className="gentric-card" sx={{ p: 0 }}>
                 <Box className="gentric-header">
 
                     <Header
-                        title="Hello World"
-                        titleIcon={<FavoriteIcon />}
-                        actions={<Icons icon={<FavoriteIcon />} aria="favorite-icon" color="primary" size="medium"
-                            onClicks={handleClick} />}
-                    />
+                        title={title}
+                        titleIcon={titleIcons}
+                        textlabel="Search here"
 
+                    />
                     <Divider />
                 </Box>
 
-                <Box className="gentric-content">
+                <Box className="gentric-content " >
                     {children}
                 </Box>
             </Card>
-            <Box className="gentric-footer">
-                <Footer buttons={data.mockTables?.button || button} />
-            </Box>
+            {button && (
+                <Box className="gentric-footer">
+                    <Footer >
+                        {button.map((btn, index) => {
+                            const btnConfig = typeof btn === 'string'
+                                ? { label: btn }
+                                : btn;
+                            return (
+                                <Buttons
+                                    key={index}
+                                    label={btnConfig.label}
+                                    startIcon={btnConfig.startIcon}
+                                    fieldColor={btnConfig.color}
+                                    variant={btnConfig.variant || 'outlined'}
+                                />
+                            );
+                        })}
+                    </Footer>
+                </Box>
+            )}
         </Paper>
     )
 }

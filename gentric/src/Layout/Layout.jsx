@@ -1,13 +1,14 @@
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import AllinOne from '../Components/Gentric/AllinOne.jsx';
-import Buttons from '../Components/Button/Button';
 import CustomTabs from '../Components/Tabs/Tabs';
 import Tables from '../Components/Tables/GridTable';
 import Lists from '../Components/lists/Lists.jsx';
-import SaveIcon from '@mui/icons-material/Save';
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Report from '@mui/icons-material/AnalyticsOutlined';
+import DownloadIcon from '@mui/icons-material/DownloadOutlined';
+import PrintIcon from '@mui/icons-material/PrintOutlined';
+import SaveIcon from '@mui/icons-material/SaveOutlined';
+import VisibilityIcon from '@mui/icons-material/VisibilityOutlined';
 import useFetch from '../Hooks/Fetch';
 
 
@@ -37,18 +38,18 @@ export default function Layout() {
                 <Box sx={{ flex: '1 1 calc(50% - 12px)', minWidth: '400px' }}>
                     <AllinOne
                         title="Dashboard Overview"
-                        titleIcons={{ icons: true, TypeIcon: 'Dashboard' }}
+                        titleIcons={<Report />}
                         headerIcons={['Edit', 'Filter', 'Delete']}
-                        button={['Download', 'Print', 'Share', 'Save']}
+                        button={['Download', 'View All']}
                     >
                         {/* Tables Section */}
                         <Box sx={{ mb: 3 }}>
                             <Tables
                                 rows={data.rows || []}
                                 columns={data.columns || []}
-                                fields={['id', 'hospital_name', 'job_title', 'email_address']}
+                                fields={['hospital_name', 'job_title', 'email_address']}
                                 paginationMode={true}
-                                checkBox={true}
+                                checkBox={false}
                                 filtering={true}
                                 sorting={true}
                             />
@@ -56,10 +57,9 @@ export default function Layout() {
                     </AllinOne>
                 </Box>
 
-                <Box sx={{ flex: '1 1 calc(50% - 12px)', minWidth: '400px' }}>
+                {/* <Box sx={{ flex: '1 1 calc(50% - 12px)', minWidth: '400px' }}>
                     <AllinOne
-                        title="Notifications & Alerts"
-                        titleIcons={{ icons: true, TypeIcon: 'Assessment' }}
+                        title=" Team Member Rank"
                         headerIcons={['Edit', 'Filter']}
                         button={['Download', 'Share']}
                     >
@@ -67,48 +67,36 @@ export default function Layout() {
                             <Lists />
                         </Box>
                     </AllinOne>
-                </Box>
+                </Box> */}
 
                 <Box sx={{ flex: '1 1 calc(50% - 12px)', minWidth: '400px' }}>
                     <AllinOne
-                        title="Simple Data Table"
-                        titleIcons={{ icons: true, TypeIcon: 'TableChart' }}
+                        title="Team Member Rank"
                         headerIcons={['Filter']}
-                        button={['Download', 'Print']}
+                        button={[
+                            { label: 'Download', startIcon: <DownloadIcon />, color: '#0fa9de' },
+                            { label: 'Print', startIcon: <PrintIcon /> }
+                        ]}
                     >
-                        <Box sx={{ mb: 3 }}>
+                        <Box sx={{ mb: 3, height: '400px', overflow: 'auto' }}>
                             <Tables
                                 rows={data.rows || []}
                                 columns={data.columns || []}
-                                fields={['id', 'gender', 'race', 'shirt_size']}
+                                fields={['gender', 'race', 'shirt_size', 'job_title', 'email_address']}
                                 paginationMode={false}
                                 checkBox={false}
                                 filtering={false}
                                 sorting={true}
+
                             />
                         </Box>
                     </AllinOne>
                 </Box>
 
                 <Box sx={{ flex: '1 1 calc(50% - 12px)', minWidth: '400px' }}>
-                    <AllinOne
-                        title="User Management"
-                        titleIcons={{ icons: true, TypeIcon: 'People' }}
-                        headerIcons={['Edit', 'Delete']}
-                        button={['Save', 'View']}
-                        variant="contained"
-                    >
-
+                    <AllinOne title="User Management" headerIcons={['Edit', 'Delete']} button={[{ label: 'Save', startIcon: <SaveIcon /> }, { label: 'View', startIcon: <VisibilityIcon /> }]} variant="contained" >
                         <Box sx={{ mb: 3 }}>
-                            <CustomTabs
-                                tabs={[
-                                    { label: 'Overview' },
-                                    { label: 'Analytics' },
-                                    { label: 'Reports' },
-                                    { label: 'Settings' },
-                                    { label: 'Settings' }
-                                ]}
-                            />
+                            <CustomTabs tabs={[{ label: 'Overview' }, { label: 'Analytics' }, { label: 'Reports' }, { label: 'Settings' }, { label: 'Settings' }]} />
                         </Box>
                     </AllinOne>
 
