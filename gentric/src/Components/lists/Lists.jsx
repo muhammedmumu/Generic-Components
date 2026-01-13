@@ -12,6 +12,7 @@ export default function Lists() {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
+                    alignItems: 'center',
                     color: 'primary.contrastText',
                     borderRadius: 1
                 }}
@@ -19,9 +20,9 @@ export default function Lists() {
                 <Typography variant="body1" color="initial">
                     You have receive <span>59 negative reviews</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere architecto ratione illo, nihil minus modi eaque dolore! Dolorem explicabo vero suscipit ipsam consectetur incidunt nam, fuga iste ea nesciunt!
                 </Typography>
-                <Buttons variant="outlined" label="Action" sx={{ m: 1 }} />
+                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1 }} />
             </Paper>
-            <Divider />
+
             <Paper
                 sx={{
                     p: 2,
@@ -29,7 +30,7 @@ export default function Lists() {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-
+                    alignItems: 'center',
                     color: 'primary.contrastText',
                     borderRadius: 1
                 }}
@@ -37,9 +38,9 @@ export default function Lists() {
                 <Typography variant="body1" color="initial">
                     You have receive <span>59 negative reviews</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere architecto ratione illo, nihil minus modi eaque dolore! Dolorem explicabo vero suscipit ipsam consectetur incidunt nam, fuga iste ea nesciunt!
                 </Typography>
-                <Buttons variant="outlined" label="Action" sx={{ m: 1 }} />
+                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1 }} />
             </Paper>
-            <Divider />
+
             <Paper
                 sx={{
                     p: 2,
@@ -47,7 +48,7 @@ export default function Lists() {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-
+                    alignItems: 'center',
                     color: 'primary.contrastText',
                     borderRadius: 1
                 }}
@@ -55,9 +56,9 @@ export default function Lists() {
                 <Typography variant="body1" color="initial">
                     You have receive <span>59 negative reviews</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere architecto ratione illo, nihil minus modi eaque dolore! Dolorem explicabo vero suscipit ipsam consectetur incidunt nam, fuga iste ea nesciunt!
                 </Typography>
-                <Buttons variant="outlined" label="Action" sx={{ m: 1 }} />
+                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1 }} />
             </Paper>
-            <Divider />
+
         </>
     );
 }
