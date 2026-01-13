@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const Buttons = ({
   label,
@@ -11,8 +12,9 @@ const Buttons = ({
   disabled = false,
   startIcon = null,
   endIcon = null,
+  typographyVariant = 'inherit',
   className = '',
-  fieldColor,
+  sx = {},
   ...props
 }) => {
   return (
@@ -25,13 +27,12 @@ const Buttons = ({
         disabled={disabled}
         startIcon={startIcon}
         endIcon={endIcon}
-        sx={{
-          textTransform: 'none',
-          color: fieldColor,
-        }}
+        sx={sx}
         {...props}
       >
-        {label}
+        <Typography variant={typographyVariant}>
+          {label}
+        </Typography>
       </Button>
     </Box>
   );
@@ -45,8 +46,9 @@ Buttons.propTypes = {
   disabled: PropTypes.bool,
   startIcon: PropTypes.node,
   endIcon: PropTypes.node,
+  typographyVariant: PropTypes.string,
   className: PropTypes.string,
-  fieldColor: PropTypes.string,
+  sx: PropTypes.object,
 };
 
 export default Buttons;

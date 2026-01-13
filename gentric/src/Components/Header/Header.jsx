@@ -1,7 +1,16 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import GentricTextField from '../TextField/TextField';
-export default function Header({ title, titleIcon, actions, type = 'text', textlabel = 'Search', icon, field = false }) {
+import PropTypes from 'prop-types';
+import Divider from '@mui/material/Divider';
+
+export default function Header({
+    title,
+    titleIcon,
+    actions,
+    textFields = [],
+    controls = [],
+}) {
     return (
         <Box sx={{ width: '100%' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }} >
@@ -17,14 +26,69 @@ export default function Header({ title, titleIcon, actions, type = 'text', textl
                     {actions}
                 </Box>
             </Box>
-            <Box >
-                {field ?
-                    <GentricTextField
-                        type={type}
-                        label={textlabel}
-                        icon={icon}
-                    /> : null}
+            <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center' }}>
+                {textFields.map((textField, idx) => {
+                    if (textField.type === 'label') {
+                        return (
+                            <Typography
+                                key={idx}
+                                variant="body2"
+                                sx={{
+                                    fontWeight: 500,
+                                    color: 'text.secondary',
+                                    whiteSpace: 'nowrap',
+                                    ...textField.sx
+                                }}
+                            >
+                                {textField.label}
+                            </Typography>
+                        );
+                    }
+
+                    return (
+                        <GentricTextField
+                            key={idx}
+                            type={textField.type || 'text'}
+                            label={textField.label}
+                            placeholder={textField.placeholder}
+                            value={textField.value}
+                            onChange={textField.onChange}
+                            onInputChange={textField.onInputChange}
+                            options={textField.options}
+                            getOptionLabel={textField.getOptionLabel}
+                            renderOption={textField.renderOption}
+                            isOptionEqualToValue={textField.isOptionEqualToValue}
+                            icon={textField.icon}
+                            variant={textField.variant}
+                            fullWidth={false}
+                            sx={{ width: 'fit-content', ...textField.sx }}
+                        />
+                    );
+                })}
+                {controls}
             </Box>
+            <Divider />
         </Box >
     )
+
+    Header.propTypes = {
+        title: PropTypes.string,
+        titleIcon: PropTypes.node,
+        actions: PropTypes.node,
+        textFields: PropTypes.arrayOf(
+            PropTypes.shape({
+                type: PropTypes.oneOf(['text', 'autocomplete', 'date', 'label']),
+                label: PropTypes.string,
+                placeholder: PropTypes.string,
+                value: PropTypes.any,
+                onChange: PropTypes.func,
+                onInputChange: PropTypes.func,
+                options: PropTypes.array,
+                icon: PropTypes.node,
+                variant: PropTypes.string,
+                sx: PropTypes.object
+            })
+        ),
+        controls: PropTypes.node
+    };
 }

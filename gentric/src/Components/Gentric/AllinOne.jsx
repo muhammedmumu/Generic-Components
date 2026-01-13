@@ -26,7 +26,7 @@ import Buttons from '../Button/Button.jsx';
 //     'Inventory': InventoryIcon,
 // };
 
-export default function GentricTables({ children, title, titleIcons, button, btnIcon, headerIcons = [] }) {
+export default function GentricTables({ children, button, }) {
     const { data } = useFetch();
 
 
@@ -38,20 +38,8 @@ export default function GentricTables({ children, title, titleIcons, button, btn
             className="gentric-container"
         >
             <Card className="gentric-card" sx={{ p: 0 }}>
-                <Box className="gentric-header">
+                {children}
 
-                    <Header
-                        title={title}
-                        titleIcon={titleIcons}
-                        textlabel="Search here"
-
-                    />
-                    <Divider />
-                </Box>
-
-                <Box className="gentric-content " >
-                    {children}
-                </Box>
             </Card>
             {button && (
                 <Box className="gentric-footer">
@@ -65,8 +53,11 @@ export default function GentricTables({ children, title, titleIcons, button, btn
                                     key={index}
                                     label={btnConfig.label}
                                     startIcon={btnConfig.startIcon}
-                                    fieldColor={btnConfig.color}
+                                    endIcon={btnConfig.endIcon}
+                                    typographyVariant={btnConfig.typographyVariant}
                                     variant={btnConfig.variant || 'outlined'}
+                                    onClick={btnConfig.onClick}
+                                    sx={btnConfig.sx}
                                 />
                             );
                         })}
