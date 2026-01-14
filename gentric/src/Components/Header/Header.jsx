@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import GentricTextField from '../TextField/TextField';
 import PropTypes from 'prop-types';
 import Divider from '@mui/material/Divider';
-
 export default function Header({
     title,
     titleIcon,

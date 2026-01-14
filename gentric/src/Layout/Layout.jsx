@@ -1,24 +1,17 @@
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import useFetch from '../Hooks/Fetch';
-// import DashboardOverview from '../Pages/DashboardOverview.jsx';
-// import TeamMemberRank from '../Pages/TeamMemberRank.jsx';
-// import MostImproving from '../Pages/MostImproving.jsx';
-// import MostDeclining from '../Pages/MostDeclining.jsx';
-// import UserManagement from '../Pages/UserManagement.jsx';
-// import EmployeePerformance from '../Pages/EmployeePerformance.jsx';
-import Test from '../Pages/Test.jsx';
-import FullFeaturedTable from '../Pages/FullFeaturedTable.jsx';
-import PortfolioMetrics from '../Pages/PortfolioMetrics.jsx';
-import InsightsActions from '../Pages/InsightsActions.jsx';
-import MostImproving from '../Pages/MostImproving.jsx';
-import MostDeclining from '../Pages/MostDeclining.jsx';
-import ActionPlanSummary from '../Pages/ActionPlanSummary.jsx';
-import TeamMemberRank from '../Pages/TeamMemberRank.jsx';
+import AllinOnePortfolioMetrics from '../Pages/AllinOnePages/PortfolioMetrics.jsx';
+import AllinOneInsightsActions from '../Pages/AllinOnePages/InsightsActions.jsx';
+import AllinOneMostImproving from '../Pages/AllinOnePages/MostImproving.jsx';
+import AllinOneMostDeclining from '../Pages/AllinOnePages/MostDeclining.jsx';
+import AllinOneActionPlanSummary from '../Pages/AllinOnePages/ActionPlanSummary.jsx';
+import AllinOneTeamMemberRank from '../Pages/AllinOnePages/TeamMemberRank.jsx';
+import AllinOneFullFeaturedTable from '../Pages/AllinOnePages/FullFeaturedTable.jsx';
 
 
 export default function Layout() {
-    const { data, loading } = useFetch();
+    const { loading } = useFetch();
 
     const handleButtonClick = (action) => {
         console.log(`${action} button clicked`);
@@ -40,14 +33,13 @@ export default function Layout() {
                 flexWrap: 'wrap',
                 gap: 3
             }}>
-                {/* <Test /> */}
-                {/* <FullFeaturedTable /> */}
-                <PortfolioMetrics />
-                <MostImproving />
-                <MostDeclining />
-                <ActionPlanSummary />
-                <TeamMemberRank />
-                <InsightsActions />
+                <AllinOneFullFeaturedTable />
+                <AllinOnePortfolioMetrics />
+                <AllinOneMostImproving />
+                <AllinOneMostDeclining />
+                <AllinOneActionPlanSummary />
+                <AllinOneTeamMemberRank />
+                <AllinOneInsightsActions />
             </Box>
         </Container>
     );

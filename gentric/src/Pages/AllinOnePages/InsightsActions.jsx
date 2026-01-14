@@ -1,0 +1,63 @@
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import SettingsIcon from '@mui/icons-material/Settings';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import DownloadIcon from '@mui/icons-material/Download';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
+import { useTableConfig } from '../../Hooks/useTableConfig.jsx';
+import GradingIcon from '@mui/icons-material/Grading';
+import AllinOne from '../../Components/Gentric/AllinOne';
+import Headers from '../../Components/Header/Header.jsx';
+import Footer from '../../Components/Footer/Fotter.jsx';
+import Buttons from '../../Components/Button/Button.jsx';
+
+import List from '../../Components/lists/Lists.jsx';
+export default function InsightsActions() {
+  const { config, actions } = useTableConfig(2);
+
+  if (!config) return null;
+
+  const headerActions = [
+    ...actions,
+    <IconButton key="filter" size="small" title="Filter">
+      <FilterListIcon />
+    </IconButton>,
+    <IconButton key="settings" size="small" title="Settings">
+      <SettingsIcon />
+    </IconButton>
+  ];
+
+  return (
+    <AllinOne>
+      <Box className="gentric-header">
+        <Headers
+          title={config?.title || 'Insights & Actions'}
+          titleIcon={<GradingIcon sx={{ fontSize: 32, color: 'primary.main' }} />}
+          actions={headerActions}
+          textFields={[]}
+        />
+      </Box>
+      <Box className="gentric-content" sx={{ padding: 2 }}>
+        <List />
+      </Box>
+      <Box sx={{ mt: 2 }}>
+        <Footer>
+          <Buttons
+            label="Download all data"
+            variant="outlined"
+            startIcon={<DownloadIcon />}
+            onClick={() => console.log('Download all data')}
+          />
+          <Buttons
+            label="View all"
+            variant="outlined"
+            sx={{ color: 'primary.main', borderColor: 'primary.main' }}
+            startIcon={<VisibilityIcon />}
+            onClick={() => console.log('View all')}
+          />
+        </Footer>
+      </Box>
+    </AllinOne>
+  );
+}

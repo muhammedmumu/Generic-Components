@@ -126,6 +126,7 @@ const Override = (theme) => ({
                 textTransform: 'none',
                 padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
                 transition: 'all 0.3s',
+                color: '#000000', // Default label color
                 '& .MuiButton-startIcon, & .MuiButton-endIcon': {
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -134,6 +135,10 @@ const Override = (theme) => ({
                     borderRadius: '4px',
                     padding: '4px 8px',
                     margin: '0 4px',
+                    color: Primary, // Default icon color
+                },
+                '& .MuiTypography-root': {
+                    color: '#000000', // Default label text color
                 },
                 '&:hover': {
                     transform: 'translateY(-2px)',
@@ -143,6 +148,9 @@ const Override = (theme) => ({
             contained: {
                 color: '#fff',
                 backgroundColor: Primary,
+                '& .MuiTypography-root': {
+                    color: '#fff',
+                },
                 '&:hover': {
                     backgroundColor: Primary,
                     opacity: 0.9,
@@ -150,7 +158,7 @@ const Override = (theme) => ({
             },
             outlined: {
                 border: 'none',
-                color: Primary,
+                color: '#000000',
                 borderColor: 'transparent',
                 '&:hover': {
                     border: 'none',
@@ -159,7 +167,7 @@ const Override = (theme) => ({
                 },
             },
             text: {
-                color: Primary,
+                color: '#000000',
                 '&:hover': {
                     backgroundColor: 'rgba(15, 169, 222, 0.04)',
                 },
@@ -183,7 +191,7 @@ const Override = (theme) => ({
             root: {
                 boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
                 borderRadius: 12,
-                elevation: 0,
+                elevation: 3,
                 "&.gentric-card": {
                     "& .gentric-header": {
                         padding: theme.spacing(2),
@@ -191,6 +199,8 @@ const Override = (theme) => ({
                         display: "flex",
                         flexDirection: "column",
                         gap: theme.spacing(2),
+                        alignItems: "center",
+
                     },
                     "& .gentric-content": {
                         height: "calc(100% - 120px)",
@@ -207,7 +217,6 @@ const Override = (theme) => ({
     MuiPaper: {
         styleOverrides: {
             root: {
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
                 "&.gentric-container": {
                     width: "auto",
                     height: "fit-content",
@@ -216,15 +225,6 @@ const Override = (theme) => ({
                         padding: theme.spacing(2),
                     },
                 },
-            },
-            elevation1: {
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-            },
-            elevation2: {
-                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-            },
-            elevation3: {
-                boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.1)",
             },
         },
     },

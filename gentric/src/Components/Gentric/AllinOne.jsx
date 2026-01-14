@@ -17,17 +17,10 @@ import Report from '@mui/icons-material/AnalyticsOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import GentricTextField from '../TextField/TextField.jsx';
 import Buttons from '../Button/Button.jsx';
-// const iconMap = {
-//     'Stars': StarsOutlinedIcon,
-//     'Dashboard': DashboardIcon,
-//     'TableChart': TableChartIcon,
-//     'Assessment': AssessmentIcon,
-//     'People': PeopleIcon,
-//     'Inventory': InventoryIcon,
-// };
 
-export default function GentricTables({ children, button, }) {
-    const { data } = useFetch();
+
+export default function GentricTables({ children, fotter }) {
+
 
 
 
@@ -39,40 +32,12 @@ export default function GentricTables({ children, button, }) {
         >
             <Card className="gentric-card" sx={{ p: 0 }}>
                 {children}
-
             </Card>
-            {button && (
-                <Box className="gentric-footer">
-                    <Footer >
-                        {button.map((btn, index) => {
-                            const btnConfig = typeof btn === 'string'
-                                ? { label: btn }
-                                : btn;
-                            return (
-                                <Buttons
-                                    key={index}
-                                    label={btnConfig.label}
-                                    startIcon={btnConfig.startIcon}
-                                    endIcon={btnConfig.endIcon}
-                                    typographyVariant={btnConfig.typographyVariant}
-                                    variant={btnConfig.variant || 'outlined'}
-                                    onClick={btnConfig.onClick}
-                                    sx={btnConfig.sx}
-                                />
-                            );
-                        })}
-                    </Footer>
-                </Box>
-            )}
+            <Box className="gentric-footer"
+            >
+                {fotter}
+            </Box>
         </Paper>
     )
 }
 
-// {
-//     <Box className="gentric-footer">
-//         <Footer >
-//             <Buttons label="Download" />
-//             <Buttons variant='contained' label="Save" />
-//         </Footer>
-//     </Box>
-// }
