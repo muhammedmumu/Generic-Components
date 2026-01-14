@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import DownloadIcon from '@mui/icons-material/Download';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import { rows as baseRows } from '../Mock/mock.js';
 import { useTableConfig } from '../Hooks/useTableConfig.jsx';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
@@ -32,10 +31,9 @@ export default function MostDeclining() {
         onClick={() => console.log('Download all data')}
       />
       <Buttons
-        label="View all"
+        label="> View all"
         variant="outlined"
-        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-        startIcon={<VisibilityIcon />}
+        sx={{ color: 'primary.main' }}
         onClick={() => console.log('View all')}
       />
     </Footer>
@@ -46,7 +44,7 @@ export default function MostDeclining() {
       <Box className="gentric-header">
         <Headers
           title={config?.title || 'Most Declining'}
-          titleIcon={<TrendingDownIcon sx={{ fontSize: 32, color: 'primary.main' }} />}
+          titleIcon={<TrendingDownIcon />}
           actions={actions}
           textFields={[]}
         />

@@ -6,7 +6,7 @@ const Footer = ({ children }) => {
 
 
   return (
-    <Box sx={{ display: 'flex', gap: 1, justifyContent: 'space-between', padding: 2 }}>
+    <Box sx={{ display: 'flex', gap: 1, justifyContent: 'space-between' }}>
       {children}
     </Box>
   );

@@ -138,7 +138,9 @@ const Override = (theme) => ({
                     color: Primary, // Default icon color
                 },
                 '& .MuiTypography-root': {
-                    color: '#000000', // Default label text color
+                    color: '#000000',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.75, // Default label text color
                 },
                 '&:hover': {
                     transform: 'translateY(-2px)',
@@ -147,6 +149,11 @@ const Override = (theme) => ({
             },
             contained: {
                 color: '#fff',
+                fontSize: '12px',
+                lineHeight: 'normal',
+
+
+
                 backgroundColor: Primary,
                 '& .MuiTypography-root': {
                     color: '#fff',
@@ -178,7 +185,7 @@ const Override = (theme) => ({
     MuiIconButton: {
         styleOverrides: {
             root: {
-                color: "#666",
+                color: "#dbdbdb",
                 "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.04)",
                 },
@@ -382,6 +389,7 @@ const Override = (theme) => ({
         styleOverrides: {
             root: {
                 fontSize: "0.75rem",
+                fontWeight: 500,
                 padding: theme.spacing(1.5),
             },
             head: {
@@ -451,6 +459,63 @@ const Override = (theme) => ({
         styleOverrides: {
             select: {
                 fontSize: "0.875rem",
+            },
+        },
+    },
+
+    MuiTextField: {
+        styleOverrides: {
+            root: {
+                '&.gentric-compact-field': {
+                    '& .MuiOutlinedInput-root': {
+                        height: 38,
+                        borderRadius: '10px',
+                        fontSize: '0.9rem',
+                        padding: 'auto',
+                        width: '150px',
+                    },
+                },
+            },
+        },
+    },
+
+    MuiAutocomplete: {
+        styleOverrides: {
+            root: {
+                '&.gentric-compact-field': {
+                    '& .MuiOutlinedInput-root': {
+                        height: 38,
+                        borderRadius: '10px',
+                        fontSize: '0.9rem',
+                        padding: 'auto',
+                        padding: ' 0'
+                    },
+                },
+            },
+        },
+    },
+
+    MuiInputBase: {
+        styleOverrides: {
+            root: {
+                width: 'fit-content',
+                maxWidth: '150px',
+                '&.gentric-compact-field': {
+                    width: 'max-content',
+                    maxWidth: '150px',
+                },
+            },
+        },
+    },
+
+    MuiInputLabel: {
+        styleOverrides: {
+            root: {
+                paddingRight: ' 4px',
+                '&.gentric-compact-field': {
+                    fontSize: '0.85rem',
+                    color: '#667085',
+                },
             },
         },
     },

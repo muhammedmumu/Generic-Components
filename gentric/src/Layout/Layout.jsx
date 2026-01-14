@@ -5,9 +5,10 @@ import PortfolioMetrics from '../Pages/PortfolioMetrics.jsx';
 import InsightsActions from '../Pages/InsightsActions.jsx';
 import MostImproving from '../Pages/MostImproving.jsx';
 import MostDeclining from '../Pages/MostDeclining.jsx';
-import ActionPlanSummary from '../Pages/ActionPlanSummary.jsx';
+import TabsPage from '../Pages/TabsPage.jsx';
 import TeamMemberRank from '../Pages/TeamMemberRank.jsx';
 import FullFeaturedTable from '../Pages/FullFeaturedTable.jsx';
+import ActionPlanSummary from '../Pages/ActionPlanSummary.jsx';
 
 
 export default function Layout() {
@@ -26,20 +27,27 @@ export default function Layout() {
     }
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+        <Container maxWidth="xl" sx={{ mt: 4, mb: 4, px: { xs: 2, sm: 3 } }}>
             <Box sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                gap: 3
+                display: 'grid',
+                gridTemplateColumns: {
+                    xs: '1fr',
+                    md: 'repeat(2, 1fr)',
+                    lg: 'repeat(2, 1fr)'
+                },
+                gap: 3,
+                '& > *': {
+                    minHeight: 'fit-content'
+                }
             }}>
                 <FullFeaturedTable />
+                <TeamMemberRank />
                 <PortfolioMetrics />
                 <MostImproving />
                 <MostDeclining />
-                <ActionPlanSummary />
-                <TeamMemberRank />
                 <InsightsActions />
+                <ActionPlanSummary />
+                <TabsPage />
             </Box>
         </Container>
     );

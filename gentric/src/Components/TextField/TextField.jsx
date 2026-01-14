@@ -3,6 +3,14 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useInputProps } from './Hooks/Text.jsx';
 
+// Default options for autocomplete when none are provided
+const DEFAULT_AUTOCOMPLETE_OPTIONS = [
+    { label: 'Option 1', value: 1 },
+    { label: 'Option 2', value: 2 },
+    { label: 'Option 3', value: 3 },
+    { label: 'Option 4', value: 4 },
+];
+
 export default function GentricTextField({
     icon,
     label = 'Label',
@@ -11,35 +19,44 @@ export default function GentricTextField({
     value,
     onChange,
     onInputChange,
-    options = [],
+    options,
     getOptionLabel,
     renderOption,
     isOptionEqualToValue,
     placeholder,
     fullWidth = true,
+    className,
     ...props
 }) {
     const inputProps = useInputProps({ type, icon });
 
     if (type === 'autocomplete') {
+        // Use provided options or fall back to default options
+        const autocompleteOptions = options && options.length > 0 ? options : DEFAULT_AUTOCOMPLETE_OPTIONS;
+        const defaultGetOptionLabel = (option) => option.label || '';
+        const defaultIsOptionEqualToValue = (option, value) => option.value === value?.value;
+
         return (
-            <Box sx={{ width: fullWidth ? '100%' : 'fit-content' }}>
+            <Box className='gentric-compact-field'>
                 <Autocomplete
-                    options={options}
+
+                    options={autocompleteOptions}
                     value={value}
                     onChange={onChange}
                     onInputChange={onInputChange}
-                    getOptionLabel={getOptionLabel}
+                    getOptionLabel={getOptionLabel || defaultGetOptionLabel}
                     renderOption={renderOption}
-                    isOptionEqualToValue={isOptionEqualToValue}
+                    isOptionEqualToValue={isOptionEqualToValue || defaultIsOptionEqualToValue}
                     fullWidth={fullWidth}
+
                     renderInput={(params) => (
-                        <TextField
+                        <TextField sx={{ width: fullWidth ? '100%' : 'fit-content' }}
                             {...params}
                             label={label}
                             variant={variant}
                             placeholder={placeholder}
                             fullWidth={fullWidth}
+                            size="small"
                             InputProps={{
                                 ...params.InputProps,
                                 ...inputProps,
@@ -54,8 +71,9 @@ export default function GentricTextField({
 
     if (type === 'date') {
         return (
-            <Box sx={{ width: fullWidth ? '100%' : 'fit-content' }}>
+            <Box className='gentric-compact-field' >
                 <TextField
+
                     type="date"
                     label={label}
                     value={value}
@@ -72,16 +90,18 @@ export default function GentricTextField({
     }
 
     return (
-        <Box sx={{ width: fullWidth ? '100%' : 'fit-content' }}>
+        <Box className='gentric-compact-field'>
             <TextField
+
                 label={label}
-                value={value}
+                value={value || ''}
                 onChange={onChange}
                 variant={variant}
                 type={type === 'filter' || type === 'search' ? 'text' : type}
                 placeholder={placeholder}
                 fullWidth={fullWidth}
                 InputProps={inputProps}
+                size="small"
                 {...props}
             />
         </Box>

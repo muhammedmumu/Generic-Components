@@ -21,11 +21,12 @@ export default function Header({
                         </Typography>
                     </Box>
                 </Box>
-                <Box sx={{ display: 'flex', gap: 1, '& .MuiIconButton-root': { backgroundColor: 'background.default', transition: 'all 0.2s', '&:hover': { backgroundColor: 'primary.main', color: 'white', transform: 'scale(1.05)' } } }} >
+                <Box sx={{ display: 'flex', gap: 1, '& .MuiIconButton-root': { transition: 'all 0.2s', '&:hover': { color: 'primary.main', transform: 'scale(1.05)' } } }} >
                     {actions}
                 </Box>
             </Box>
-            <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center' }}>
+            {/* mapping the textfields and controls */}
+            <Box sx={{ mt: 2, display: 'flex', flexWrap: 'nowrap', gap: 2, alignItems: 'center', justifyContent: 'space-between', paddingBottom: '10px' }}>
                 {textFields.map((textField, idx) => {
                     if (textField.type === 'label') {
                         return (
@@ -43,7 +44,6 @@ export default function Header({
                             </Typography>
                         );
                     }
-
                     return (
                         <GentricTextField
                             key={idx}

@@ -1,10 +1,10 @@
 import React from 'react';
 import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import SearchIcon from '@mui/icons-material/Search';
-import Box from '@mui/material/Box';
+import EditIcon from '@mui/icons-material/Edit';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 import Header from './Header';
 
 export default {
@@ -18,127 +18,85 @@ export default {
 
 export const Basic = {
   args: {
-    header: 'Basic Header',
+    title: 'Basic Header',
   },
 };
 
-export const WithHeaderIcon = {
+export const WithTitleIcon = {
   args: {
-    header: 'Dashboard',
-    headerIcon: <DashboardIcon sx={{ fontSize: 32, color: 'primary.main', padding: 0 }} />,
+    title: 'Dashboard',
+    titleIcon: <DashboardIcon sx={{ fontSize: 32, color: 'primary.main', padding: 0 }} />,
   },
 };
 
 export const WithStarsIcon = {
   args: {
-    header: 'Featured Items',
-    headerIcon: <StarsOutlinedIcon sx={{ fontSize: 32, color: 'primary.main' }} />,
+    title: 'Featured Items',
+    titleIcon: <StarsOutlinedIcon sx={{ fontSize: 32, color: 'primary.main' }} />,
   },
 };
 
-export const WithEditIcon = {
+export const WithActionButtons = {
   args: {
-    header: 'Editable Content',
-    icons: ['Edit'],
-  },
-};
-
-export const WithFilterIcon = {
-  args: {
-    header: 'Filterable List',
-    icons: ['Filter'],
-  },
-};
-
-export const WithDeleteIcon = {
-  args: {
-    header: 'Manage Items',
-    icons: ['Delete'],
-  },
-};
-
-export const WithMultipleIcons = {
-  args: {
-    header: 'Full Featured Header',
-    icons: ['Edit', 'Filter', 'Delete'],
-    headerIcon: <DashboardIcon sx={{ fontSize: 32, color: 'primary.main' }} />,
-  },
-};
-
-export const WithSearchBar = {
-  args: {
-    header: 'Search Results',
-    searchbar: (
-      <TextField
-        fullWidth
-        placeholder="Search..."
-        size="small"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
+    title: 'Editable Content',
+    actions: (
+      <>
+        <IconButton><EditIcon /></IconButton>
+        <IconButton><FilterListIcon /></IconButton>
+        <IconButton><DeleteIcon /></IconButton>
+      </>
     ),
   },
 };
 
-export const WithFilterBox = {
+export const WithTextFields = {
   args: {
-    header: 'Filtered View',
-    filterbox: (
-      <Box sx={{ display: 'flex', gap: 2 }}>
-        <TextField
-          select
-          label="Category"
-          size="small"
-          sx={{ minWidth: 120 }}
-          SelectProps={{
-            native: true,
-          }}
-        >
-          <option value="">All</option>
-          <option value="1">Category 1</option>
-          <option value="2">Category 2</option>
-        </TextField>
-        <TextField
-          select
-          label="Status"
-          size="small"
-          sx={{ minWidth: 120 }}
-          SelectProps={{
-            native: true,
-          }}
-        >
-          <option value="">All</option>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-        </TextField>
-      </Box>
-    ),
+    title: 'Team Member Rank',
+    titleIcon: <DashboardIcon sx={{ fontSize: 32, color: 'primary.main' }} />,
+    textFields: [
+      {
+        type: 'label',
+        label: 'Response Cut-Off:',
+      },
+      {
+        type: 'date',
+        value: '2024-01-01',
+        onChange: () => { },
+      },
+      {
+        type: 'autocomplete',
+        value: null,
+        onChange: () => { },
+        options: [
+          { label: 'All Responses', value: 'all' },
+          { label: 'Positive', value: 'positive' },
+          { label: 'Negative', value: 'negative' },
+        ],
+      },
+    ],
   },
 };
 
 export const Complete = {
   args: {
-    header: 'Complete Example',
-    headerIcon: <StarsOutlinedIcon sx={{ fontSize: 32, color: 'primary.main' }} />,
-    icons: ['Edit', 'Filter', 'Delete'],
-    searchbar: (
-      <TextField
-        fullWidth
-        placeholder="Search..."
-        size="small"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
+    title: 'Complete Example',
+    titleIcon: <StarsOutlinedIcon sx={{ fontSize: 32, color: 'primary.main' }} />,
+    actions: (
+      <>
+        <IconButton><EditIcon /></IconButton>
+        <IconButton><FilterListIcon /></IconButton>
+      </>
     ),
+    textFields: [
+      {
+        type: 'label',
+        label: 'Filter:',
+      },
+      {
+        type: 'autocomplete',
+        value: null,
+        onChange: () => { },
+      },
+    ],
   },
 };

@@ -1,17 +1,18 @@
 import { useMemo } from 'react';
-import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import FilterIcon from '@mui/icons-material/Filter';
-
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { mockTables, columns as baseColumns } from '../Mock/mock.js';
+import IconButton from '@mui/material/IconButton';
 
 export function useTableConfig(tableIndex) {
   // Icon mapping for header actions
   const headerIconMap = useMemo(() => ({
     Edit: <EditIcon />,
     Delete: <DeleteIcon />,
-    Filter: <FilterIcon />,
+    Filter: <FilterAltOutlinedIcon />,
+    Settings: <SettingsIcon />
 
   }), []);
 

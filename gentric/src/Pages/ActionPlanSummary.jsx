@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import DownloadIcon from '@mui/icons-material/Download';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
 import { rows } from '../Mock/mock.js';
 import { useTableConfig } from '../Hooks/useTableConfig.jsx';
 import Header from '../Components/Header/Header.jsx';
@@ -11,7 +11,7 @@ import Footer from '../Components/Footer/Fotter.jsx';
 import Buttons from '../Components/Button/Button.jsx';
 
 export default function ActionPlanSummary() {
-  const { config, columns, actions } = useTableConfig(5);
+  const { config, columns, actions } = useTableConfig(6);
   const fotter = (<Footer>
     <Buttons
       label="Download all data"
@@ -20,10 +20,9 @@ export default function ActionPlanSummary() {
       onClick={() => console.log('Download all data')}
     />
     <Buttons
-      label="View all"
+      label="> View all"
       variant="outlined"
-      sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-      startIcon={<VisibilityIcon />}
+      sx={{ color: 'primary.main' }}
       onClick={() => console.log('View all')}
     />
   </Footer>);
@@ -35,7 +34,7 @@ export default function ActionPlanSummary() {
       <Box className="gentric-header">
         <Header
           title={config?.title}
-          titleIcon={null}
+          titleIcon={<StarsOutlinedIcon />}
           textFields={[]}
           actions={actions}
         />

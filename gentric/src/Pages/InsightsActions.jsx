@@ -3,10 +3,8 @@ import IconButton from '@mui/material/IconButton';
 import SettingsIcon from '@mui/icons-material/Settings';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import DownloadIcon from '@mui/icons-material/Download';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-
 import { useTableConfig } from '../Hooks/useTableConfig.jsx';
-import GradingIcon from '@mui/icons-material/Grading';
+import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import AllinOne from '../Components/Gentric/AllinOne.jsx';
 import Headers from '../Components/Header/Header.jsx';
 import Footer from '../Components/Footer/Fotter.jsx';
@@ -37,10 +35,9 @@ export default function InsightsActions() {
         onClick={() => console.log('Download all data')}
       />
       <Buttons
-        label="View all"
+        label="> View all"
         variant="outlined"
-        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-        startIcon={<VisibilityIcon />}
+        sx={{ color: 'primary.main' }}
         onClick={() => console.log('View all')}
       />
     </Footer>
@@ -51,7 +48,7 @@ export default function InsightsActions() {
       <Box className="gentric-header">
         <Headers
           title={config?.title || 'Insights & Actions'}
-          titleIcon={<GradingIcon sx={{ fontSize: 32, color: 'primary.main' }} />}
+          titleIcon={<CommentOutlinedIcon />}
           actions={headerActions}
           textFields={[]}
         />

@@ -10,30 +10,63 @@ import AllinOne from '../Components/Gentric/AllinOne.jsx';
 import GridTable from '../Components/Tables/GridTable.jsx';
 import Footer from '../Components/Footer/Fotter.jsx';
 import Buttons from '../Components/Button/Button.jsx';
+import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
 
-/**
- * TeamMemberRank - Table #7
- *
- * Displays team member ranking with full-featured interactions:
- * - Pagination: ON (multi-page view for large teams)
- * - Filtering: ON (search by name, role, department)
- * - Sorting: ON (rank order, performance metrics)
- * - Checkbox: OFF (single selection only)
- * - Header Icon: Filter (focused search)
- * - Buttons: Download, Print (export & physical copy)
- *
- * Design rationale:
- * - Single row selection for focused comparison/inspection
- * - Full pagination + filter + sort enables exploration of large teams
- * - Download + Print support both digital and physical distribution
- * - Minimal header (Filter only) maintains focus on ranking data
- * - No checkbox selection keeps UI clean for ranking context
- */
 
 export default function TeamMemberRank() {
-  const { config, columns, actions } = useTableConfig(6);
-  const footer = (
+  const { config, columns, actions } = useTableConfig(1);
+  const [textField1, setTextField1] = React.useState('');
+  const [autocomplete1, setAutocomplete1] = React.useState('');
+  const [textField3, setTextField3] = React.useState('');
+  const [autocomplete2, setAutocomplete2] = React.useState('');
 
+  const textFields = [
+    {
+      type: 'date',
+      label: "",
+      value: textField1,
+      onChange: (e) => setTextField1(e.target.value),
+
+
+    },
+    {
+      type: 'label',
+      label: 'Response Cut-Off:',
+      sx: {
+        fontWeight: 600,
+        fontSize: '0.95rem',
+        color: '#667085',
+        display: 'flex',
+        alignItems: 'center'
+      }
+    },
+    {
+      type: 'autocomplete',
+      label: 'All Responses',
+      placeholder: 'All Responses',
+      value: autocomplete1,
+      onChange: (event, newValue) => setAutocomplete1(newValue),
+      fullWidth: true,
+    },
+    {
+      type: 'autocomplete',
+      label: 'All',
+      placeholder: 'All',
+      value: textField3,
+      onChange: (event, newValue) => setTextField3(newValue),
+      fullWidth: true,
+
+    },
+    {
+      type: 'autocomplete',
+      label: 'Leasing',
+      placeholder: 'Leasing',
+      value: autocomplete2,
+      onChange: (event, newValue) => setAutocomplete2(newValue),
+      fullWidth: true,
+    }
+  ];
+  const footer = (
     <Footer>
       <Buttons
         label="Download all data"
@@ -44,16 +77,10 @@ export default function TeamMemberRank() {
       <Buttons
         label="View all"
         variant="outlined"
-        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-        startIcon={<VisibilityIcon />}
         onClick={() => console.log('View all')}
       />
     </Footer>
-
   );
-
-
-
 
   if (!config) return null;
 
@@ -62,9 +89,10 @@ export default function TeamMemberRank() {
       <Box className="gentric-header">
         <Header
           title={config?.title}
-          titleIcon={null}
-          textFields={[]}
+          titleIcon={<StarsOutlinedIcon />}
+          textFields={textFields}
           actions={actions}
+
         />
       </Box>
       <GridTable

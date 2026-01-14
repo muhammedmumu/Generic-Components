@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 
 const Buttons = ({
   label,
@@ -30,9 +29,7 @@ const Buttons = ({
         sx={sx}
         {...props}
       >
-        <Typography variant={typographyVariant}>
-          {label}
-        </Typography>
+        {label}
       </Button>
     </Box>
   );

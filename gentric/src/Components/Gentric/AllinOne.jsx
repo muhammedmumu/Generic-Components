@@ -1,42 +1,39 @@
 import Card from '@mui/material/Card';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import TableChartIcon from '@mui/icons-material/TableChart';
-import AssessmentIcon from '@mui/icons-material/Assessment';
-import PeopleIcon from '@mui/icons-material/People';
-import InventoryIcon from '@mui/icons-material/Inventory';
-import Header from '../Header/Header.jsx';
-import Footer from '../Footer/Fotter.jsx';
-import useFetch from '../../Hooks/Fetch.jsx';
-import Icons from '../IconsButtons/IconsButtons.jsx';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import Report from '@mui/icons-material/AnalyticsOutlined';
-import PersonIcon from '@mui/icons-material/Person';
-import GentricTextField from '../TextField/TextField.jsx';
-import Buttons from '../Button/Button.jsx';
 
 
-export default function GentricTables({ children, fotter }) {
-
-
-
-
-
+export default function GentricTables({ children, footer }) {
     return (
         <Paper
             variant="outlined"
             className="gentric-container"
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+                overflow: 'hidden'
+            }}
         >
-            <Card className="gentric-card" sx={{ p: 0 }}>
+            <Card
+                className="gentric-card"
+                sx={{
+                    p: 0,
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    overflow: 'auto'
+                }}
+            >
                 {children}
             </Card>
-            <Box className="gentric-footer"
-            >
-                {fotter}
-            </Box>
+            {footer && (
+                <Box
+                    className="gentric-footer"
+                >
+                    {footer}
+                </Box>
+            )}
         </Paper>
     )
 }

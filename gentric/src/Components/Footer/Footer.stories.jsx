@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from './Fotter';
+import Buttons from '../Button/Button';
 
 export default {
   title: 'Components/Footer',
@@ -8,52 +9,46 @@ export default {
     layout: 'padded',
   },
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: ['contained', 'outlined', 'text'],
-      description: 'Button variant style',
-    },
-    buttons: {
-      control: { type: 'object' },
-      description: 'Array of button labels',
-    },
-  },
 };
 
-const Template = (args) => <Footer {...args} />;
-
-export const DefaultFooter = Template.bind({});
-DefaultFooter.args = {
-  buttons: ['Download', 'Print', 'Share'],
-  variant: 'contained',
+export const DefaultFooter = {
+  render: () => (
+    <Footer>
+      <Buttons label="Download" variant="contained" />
+      <Buttons label="Print" variant="contained" />
+      <Buttons label="Share" variant="contained" />
+    </Footer>
+  ),
 };
 
-export const OutlinedButtons = Template.bind({});
-OutlinedButtons.args = {
-  buttons: ['Download', 'Print', 'Share'],
-  variant: 'outlined',
+export const OutlinedButtons = {
+  render: () => (
+    <Footer>
+      <Buttons label="Download" variant="outlined" />
+      <Buttons label="Print" variant="outlined" />
+      <Buttons label="Share" variant="outlined" />
+    </Footer>
+  ),
 };
 
-export const TextButtons = Template.bind({});
-TextButtons.args = {
-  buttons: ['Save', 'Delete', 'Send'],
-  variant: 'text',
+export const TextButtons = {
+  render: () => (
+    <Footer>
+      <Buttons label="Save" variant="text" />
+      <Buttons label="Delete" variant="text" />
+      <Buttons label="Send" variant="text" />
+    </Footer>
+  ),
 };
 
-export const SimpleFooter = Template.bind({});
-SimpleFooter.args = {
-  buttons: ['Download'],
-  variant: 'contained',
+export const SimpleFooter = {
+  render: () => (
+    <Footer>
+      <Buttons label="Download" variant="contained" />
+    </Footer>
+  ),
 };
 
-export const AllButtonTypes = Template.bind({});
-AllButtonTypes.args = {
-  buttons: ['Download', 'Print', 'Share', 'Save', 'Delete', 'Send', 'Edit'],
-  variant: 'contained',
-};
-
-export const EmptyFooter = Template.bind({});
-EmptyFooter.args = {
-  buttons: [],
+export const EmptyFooter = {
+  render: () => <Footer />,
 };

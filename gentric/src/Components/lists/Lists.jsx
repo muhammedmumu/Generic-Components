@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 import Buttons from '../Button/Button';
 import Paper from '@mui/material/Paper';
-import Divider from '@mui/material/Divider';
+
 export default function Lists() {
     return (
         <>
@@ -20,7 +20,7 @@ export default function Lists() {
                 <Typography variant="body1" color="initial">
                     You have receive <span>59 negative reviews</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere architecto ratione illo, nihil minus modi eaque dolore! Dolorem explicabo vero suscipit ipsam consectetur incidunt nam, fuga iste ea nesciunt!
                 </Typography>
-                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1 }} />
+                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1, width: '122px' }} />
             </Paper>
 
             <Paper
@@ -38,7 +38,7 @@ export default function Lists() {
                 <Typography variant="body1" color="initial">
                     You have receive <span>59 negative reviews</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere architecto ratione illo, nihil minus modi eaque dolore! Dolorem explicabo vero suscipit ipsam consectetur incidunt nam, fuga iste ea nesciunt!
                 </Typography>
-                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1 }} />
+                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1, width: '122px' }} />
             </Paper>
 
             <Paper
@@ -56,7 +56,7 @@ export default function Lists() {
                 <Typography variant="body1" color="initial">
                     You have receive <span>59 negative reviews</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere architecto ratione illo, nihil minus modi eaque dolore! Dolorem explicabo vero suscipit ipsam consectetur incidunt nam, fuga iste ea nesciunt!
                 </Typography>
-                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1 }} />
+                <Buttons variant="contained" label="VIEW REVIEW ANALYTICS" sx={{ m: 1, width: '122px' }} />
             </Paper>
 
         </>
