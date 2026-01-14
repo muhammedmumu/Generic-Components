@@ -2,13 +2,13 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import DownloadIcon from '@mui/icons-material/Download';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { rows } from '../../Mock/mock.js';
-import { useTableConfig } from '../../Hooks/useTableConfig.jsx';
-import Header from '../../Components/Header/Header.jsx';
-import AllinOne from '../../Components/Gentric/AllinOne.jsx';
-import GridTable from '../../Components/Tables/GridTable.jsx';
-import Footer from '../../Components/Footer/Fotter.jsx';
-import Buttons from '../../Components/Button/Button.jsx';
+import { rows } from '../Mock/mock.js';
+import { useTableConfig } from '../Hooks/useTableConfig.jsx';
+import Header from '../Components/Header/Header.jsx';
+import AllinOne from '../Components/Gentric/AllinOne.jsx';
+import GridTable from '../Components/Tables/GridTable.jsx';
+import Footer from '../Components/Footer/Fotter.jsx';
+import Buttons from '../Components/Button/Button.jsx';
 
 export default function ActionPlanSummary() {
   const { config, columns, actions } = useTableConfig(5);

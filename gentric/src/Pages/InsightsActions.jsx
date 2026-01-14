@@ -5,14 +5,14 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import DownloadIcon from '@mui/icons-material/Download';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
-import { useTableConfig } from '../../Hooks/useTableConfig.jsx';
+import { useTableConfig } from '../Hooks/useTableConfig.jsx';
 import GradingIcon from '@mui/icons-material/Grading';
-import AllinOne from '../../Components/Gentric/AllinOne';
-import Headers from '../../Components/Header/Header.jsx';
-import Footer from '../../Components/Footer/Fotter.jsx';
-import Buttons from '../../Components/Button/Button.jsx';
+import AllinOne from '../Components/Gentric/AllinOne.jsx';
+import Headers from '../Components/Header/Header.jsx';
+import Footer from '../Components/Footer/Fotter.jsx';
+import Buttons from '../Components/Button/Button.jsx';
 
-import List from '../../Components/lists/Lists.jsx';
+import List from '../Components/lists/Lists.jsx';
 export default function InsightsActions() {
   const { config, actions } = useTableConfig(2);
 
@@ -28,8 +28,26 @@ export default function InsightsActions() {
     </IconButton>
   ];
 
+  const footer = (
+    <Footer className="gentric-footer">
+      <Buttons
+        label="Download all data"
+        variant="outlined"
+        startIcon={<DownloadIcon />}
+        onClick={() => console.log('Download all data')}
+      />
+      <Buttons
+        label="View all"
+        variant="outlined"
+        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
+        startIcon={<VisibilityIcon />}
+        onClick={() => console.log('View all')}
+      />
+    </Footer>
+  );
+
   return (
-    <AllinOne>
+    <AllinOne footer={footer}>
       <Box className="gentric-header">
         <Headers
           title={config?.title || 'Insights & Actions'}
@@ -40,23 +58,6 @@ export default function InsightsActions() {
       </Box>
       <Box className="gentric-content" sx={{ padding: 2 }}>
         <List />
-      </Box>
-      <Box sx={{ mt: 2 }}>
-        <Footer>
-          <Buttons
-            label="Download all data"
-            variant="outlined"
-            startIcon={<DownloadIcon />}
-            onClick={() => console.log('Download all data')}
-          />
-          <Buttons
-            label="View all"
-            variant="outlined"
-            sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-            startIcon={<VisibilityIcon />}
-            onClick={() => console.log('View all')}
-          />
-        </Footer>
       </Box>
     </AllinOne>
   );
