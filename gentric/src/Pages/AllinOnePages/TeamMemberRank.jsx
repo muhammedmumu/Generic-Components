@@ -31,12 +31,34 @@ import Buttons from '../../Components/Button/Button.jsx';
  */
 
 export default function TeamMemberRank() {
-  const { config, columns, actions, buttons } = useTableConfig(6);
+  const { config, columns, actions } = useTableConfig(6);
+  const footer = (
+
+    <Footer>
+      <Buttons
+        label="Download all data"
+        variant="outlined"
+        startIcon={<DownloadIcon />}
+        onClick={() => console.log('Download all data')}
+      />
+      <Buttons
+        label="View all"
+        variant="outlined"
+        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
+        startIcon={<VisibilityIcon />}
+        onClick={() => console.log('View all')}
+      />
+    </Footer>
+
+  );
+
+
+
 
   if (!config) return null;
 
   return (
-    <AllinOne buttons={buttons}>
+    <AllinOne footer={footer}>
       <Box className="gentric-header">
         <Header
           title={config?.title}
@@ -54,23 +76,6 @@ export default function TeamMemberRank() {
         sorting={config?.sorting}
         paginationMode={config?.pagination ? 'server' : 'client'}
       />
-      <Box sx={{ mt: 2 }}>
-        <Footer>
-          <Buttons
-            label="Download all data"
-            variant="outlined"
-            startIcon={<DownloadIcon />}
-            onClick={() => console.log('Download all data')}
-          />
-          <Buttons
-            label="View all"
-            variant="outlined"
-            sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-            startIcon={<VisibilityIcon />}
-            onClick={() => console.log('View all')}
-          />
-        </Footer>
-      </Box>
     </AllinOne>
   );
 }
