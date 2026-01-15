@@ -12,7 +12,7 @@ export const mockTables = [
         checkbox: false,
         sorting: false,
         filtering: false,
-        rowSelection: "multiple",
+        resize: false,
         loading: false,
         onSelectMode: true,
         modeChange: false,

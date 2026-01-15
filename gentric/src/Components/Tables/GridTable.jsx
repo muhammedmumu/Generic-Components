@@ -4,8 +4,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import TableHook from '../Tables/Hooks/Table';
 
-function Tables({ rows, columns, fields, paginationMode, checkBox, filtering, sorting, ...rest }) {
-    const { paginationProps, gridColumns } = TableHook({ columns, fields, sorting, filtering, paginationMode });
+function Tables({ rows, columns, fields, paginationMode, checkBox, filtering, sorting, reSizeing, ...rest }) {
+    const { paginationProps, gridColumns } = TableHook({ columns, fields, sorting, filtering, paginationMode, reSizeing });
 
     const tableHeight = paginationMode ? 'fit-content' : 'auto';
     const maxHeight = paginationMode ? 'none' : '500px';
@@ -20,7 +20,8 @@ function Tables({ rows, columns, fields, paginationMode, checkBox, filtering, so
                 disableColumnMenu={!(filtering || sorting)}
                 sortingMode={sorting ? "client" : "server"}
                 disableColumnSorting={!sorting}
-                columnHeaderHeight={56}
+                disableColumnResizing={!reSizeing}
+
                 {...paginationProps} />
         </Box>
     );

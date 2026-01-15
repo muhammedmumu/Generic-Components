@@ -63,7 +63,7 @@ const Override = (theme) => ({
                     border: "none",
                 },
                 "& .MuiDataGrid-columnHeaders": {
-                    backgroundColor: "transparent",
+                    backgroundColor: "#ffffff",
                     outline: "none",
                     position: "sticky",
                     top: 0,
@@ -110,7 +110,7 @@ const Override = (theme) => ({
                     fontSize: 12,
                     color: "black",
                     textTransform: "uppercase",
-                 
+
                 },
                 "& .MuiDataGrid-footerContainer": {
                     fontSize: 12,
@@ -232,10 +232,10 @@ const Override = (theme) => ({
                     marginBottom: theme.spacing(3),
                     "& .gentric-footer": {
                         display: 'flex',
-                         gap: 1, 
-                         justifyContent: 'space-between',
-                         
-                        
+                        gap: 1,
+                        justifyContent: 'space-between',
+
+
                     },
                 },
             },
@@ -261,7 +261,7 @@ const Override = (theme) => ({
         styleOverrides: {
             root: {
                 borderColor: "#e0e0e0",
-                marginBottom:5
+                marginBottom: 5
 
             },
         },
@@ -495,7 +495,7 @@ const Override = (theme) => ({
                         borderRadius: '10px',
                         fontSize: '0.9rem',
                         padding: 'auto',
-                        
+
                     },
                 },
             },
