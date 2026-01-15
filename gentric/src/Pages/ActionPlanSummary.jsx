@@ -35,6 +35,7 @@ export default function ActionPlanSummary() {
         <Header
           title={config?.title}
           titleIcon={<StarsOutlinedIcon />}
+          subtitle={"Click on a row to view  Matric and trends"}
           textFields={[]}
           actions={actions}
         />

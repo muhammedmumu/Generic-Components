@@ -29,6 +29,14 @@ export const WithTitleIcon = {
   },
 };
 
+export const WithSubtitle = {
+  args: {
+    title: 'Program Overview',
+    subtitle: 'Tracks status, owners, and key risks for the current quarter.',
+    titleIcon: <DashboardIcon sx={{ fontSize: 32, color: 'primary.main', padding: 0 }} />,
+  },
+};
+
 export const WithStarsIcon = {
   args: {
     title: 'Featured Items',

@@ -54,7 +54,7 @@ export const WithStartIcon = {
   args: {
     label: 'Add Item',
     variant: 'contained',
-    startIcon: <AddIcon />,
+    startIcon: <AddIcon sx={{ color: 'black' }} />,
     onClick: () => console.log('Add button clicked'),
   },
 };

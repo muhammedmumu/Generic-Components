@@ -4,6 +4,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { rows } from '../Mock/mock.js';
 import { useTableConfig } from '../Hooks/useTableConfig.jsx';
+
 import Header from '../Components/Header/Header.jsx';
 import AllinOne from '../Components/Gentric/AllinOne.jsx';
 import GridTable from '../Components/Tables/GridTable.jsx';
@@ -65,27 +66,27 @@ export default function TeamMemberRank() {
       fullWidth: true,
     }
   ];
-  const footer = (
-    <Footer>
-      <Buttons
-        label="Download all data"
-        variant="outlined"
-        startIcon={<DownloadIcon />}
-        onClick={() => console.log('Download all data')}
-      />
-      <Buttons
-        label=">View all"
-        variant="outlined"
-        onClick={() => console.log('View all')}
-        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-      />
-    </Footer>
-  );
+  // const footer = (
+  //   <Footer>
+  //     <Buttons
+  //       label="Download all data"
+  //       variant="outlined"
+  //       startIcon={<DownloadIcon />}
+  //       onClick={() => console.log('Download all data')}
+  //     />
+  //     <Buttons
+  //       label="View all"
+  //       variant="outlined"
+  //       onClick={() => console.log('View all')}
+  //       sx={{ color: 'primary.main', borderColor: 'primary.main' }}
+  //     />
+  //   </Footer>
+  // );
 
   if (!config) return null;
 
   return (
-    <AllinOne footer={footer}>
+    <AllinOne >
       <Box className="gentric-header">
         <Header
           title={config?.title}
@@ -103,6 +104,7 @@ export default function TeamMemberRank() {
         filtering={config?.filtering}
         sorting={config?.sorting}
         paginationMode={config?.pagination}
+
       />
     </AllinOne>
   );

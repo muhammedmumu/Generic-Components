@@ -9,6 +9,7 @@ import TabsPage from '../Pages/TabsPage.jsx';
 import TeamMemberRank from '../Pages/TeamMemberRank.jsx';
 import FullFeaturedTable from '../Pages/FullFeaturedTable.jsx';
 import ActionPlanSummary from '../Pages/ActionPlanSummary.jsx';
+import Withoutfotter from '../Pages/Withoutfotter.jsx';
 
 
 export default function Layout() {
@@ -48,6 +49,7 @@ export default function Layout() {
                 <InsightsActions />
                 <ActionPlanSummary />
                 <TabsPage />
+                <Withoutfotter />
             </Box>
         </Container>
     );
