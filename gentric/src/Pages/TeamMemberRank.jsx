@@ -74,7 +74,7 @@ export default function TeamMemberRank() {
         onClick={() => console.log('Download all data')}
       />
       <Buttons
-        label="View all"
+        label=">View all"
         variant="outlined"
         onClick={() => console.log('View all')}
         sx={{ color: 'primary.main', borderColor: 'primary.main' }}
