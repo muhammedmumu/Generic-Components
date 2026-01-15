@@ -48,8 +48,8 @@ export default function FullFeaturedTable() {
         fields={config?.fields}
         checkBox={!!config?.checkbox}
         filtering={!!config?.filtering}
-        sorting={!!config?.sorting}
         paginationMode={!!config?.pagination}
+        sorting={!!config?.sorting}
       />
     </AllinOne>
   );

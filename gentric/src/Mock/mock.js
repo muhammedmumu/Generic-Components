@@ -1,4 +1,4 @@
-import SettingsIcon from '@mui/icons-material/Settings';
+
 export const mockTables = [
     {
         id: 1,
@@ -10,11 +10,10 @@ export const mockTables = [
         button: ["Download", "View"],
         pagination: true,
         checkbox: false,
-        sorting: true,
-        filtering: true,
+        sorting: false,
+        filtering: false,
         rowSelection: "multiple",
         loading: false,
-        sortingMode: "client",
         onSelectMode: true,
         modeChange: false,
         render: "default"
@@ -32,7 +31,7 @@ export const mockTables = [
         filtering: false,
         rowSelection: "none",
         loading: false,
-        sortingMode: "client",
+
         onSelectMode: false,
         modeChange: false,
         render: "minimal"
@@ -54,9 +53,7 @@ export const mockTables = [
         checkbox: false,
         sorting: true,
         filtering: true,
-        rowSelection: "single",
         loading: false,
-        sortingMode: "client",
         onSelectMode: false,
         modeChange: false,
         render: "default"
@@ -73,9 +70,7 @@ export const mockTables = [
         checkbox: false,
         sorting: true,
         filtering: true,
-        rowSelection: "single",
         loading: false,
-        sortingMode: "client",
         onSelectMode: false,
         modeChange: false,
         render: "default"
@@ -93,7 +88,6 @@ export const mockTables = [
         filtering: true,
         rowSelection: "multiple",
         loading: false,
-        sortingMode: "client",
         onSelectMode: true,
         modeChange: true,
         render: "default"
@@ -110,7 +104,6 @@ export const mockTables = [
         filtering: true,
         rowSelection: "multiple",
         loading: false,
-        sortingMode: "client",
         onSelectMode: true,
         modeChange: true,
         render: "default"
@@ -120,14 +113,14 @@ export const mockTables = [
 // ...existing code...
 export const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'hospital_name', headerName: 'Hospital', flex: 1, minWidth: 200 },
-    { field: 'gender', headerName: 'Gender', flex: 0.5, minWidth: 100 },
-    { field: 'color', headerName: 'Color', flex: 0.5, minWidth: 100 },
-    { field: 'job_title', headerName: 'Job Title', flex: 1, minWidth: 180 },
-    { field: 'ssn', headerName: 'SSN', flex: 0.8, minWidth: 140 },
-    { field: 'race', headerName: 'Race', flex: 0.8, minWidth: 140 },
-    { field: 'shirt_size', headerName: 'Shirt Size', flex: 0.4, minWidth: 90 },
-    { field: 'email_address', headerName: 'Email', flex: 1, minWidth: 200 },
+    { field: 'hospital_name', headerName: 'Hospital', flex: 1, sortable: false },
+    { field: 'gender', headerName: 'Gender', flex: 0.5, },
+    { field: 'color', headerName: 'Color', flex: 0.5, },
+    { field: 'job_title', headerName: 'Job Title', flex: 1, },
+    { field: 'ssn', headerName: 'SSN', flex: 0.8, },
+    { field: 'race', headerName: 'Race', flex: 0.8, },
+    { field: 'shirt_size', headerName: 'Shirt Size', flex: 0.4, },
+    { field: 'email_address', headerName: 'Email', flex: 1, },
 ];
 
 export const rows = [
