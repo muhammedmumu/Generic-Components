@@ -14,9 +14,9 @@ import ActionPlanSummary from '../Pages/ActionPlanSummary.jsx';
 export default function Layout() {
     const { loading } = useFetch();
 
-    const handleButtonClick = (action) => {
-        console.log(`${action} button clicked`);
-    };
+    // const handleButtonClick = (action) => {
+    //     console.log(`${action} button clicked`);
+    // };
 
     if (loading) {
         return (

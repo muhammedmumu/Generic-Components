@@ -70,24 +70,36 @@ export default function Header({
         </Box >
     )
 
-    Header.propTypes = {
-        title: PropTypes.string,
-        titleIcon: PropTypes.node,
-        actions: PropTypes.node,
-        textFields: PropTypes.arrayOf(
-            PropTypes.shape({
-                type: PropTypes.oneOf(['text', 'autocomplete', 'date', 'label']),
-                label: PropTypes.string,
-                placeholder: PropTypes.string,
-                value: PropTypes.any,
-                onChange: PropTypes.func,
-                onInputChange: PropTypes.func,
-                options: PropTypes.array,
-                icon: PropTypes.node,
-                variant: PropTypes.string,
-                sx: PropTypes.object
-            })
-        ),
-        controls: PropTypes.node
-    };
 }
+
+Header.propTypes = {
+    title: PropTypes.string,
+    titleIcon: PropTypes.node,
+    actions: PropTypes.node,
+    textFields: PropTypes.arrayOf(
+        PropTypes.shape({
+            type: PropTypes.oneOf(['text', 'autocomplete', 'date', 'label']),
+            label: PropTypes.string,
+            placeholder: PropTypes.string,
+            value: PropTypes.any,
+            onChange: PropTypes.func,
+            onInputChange: PropTypes.func,
+            options: PropTypes.array,
+            getOptionLabel: PropTypes.func,
+            renderOption: PropTypes.func,
+            isOptionEqualToValue: PropTypes.func,
+            icon: PropTypes.node,
+            variant: PropTypes.string,
+            sx: PropTypes.object
+        })
+    ),
+    controls: PropTypes.node
+};
+
+Header.defaultProps = {
+    title: '',
+    titleIcon: null,
+    actions: null,
+    textFields: [],
+    controls: null,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -11,11 +12,11 @@ const DEFAULT_AUTOCOMPLETE_OPTIONS = [
     { label: 'Option 4', value: 4 },
 ];
 
-export default function GentricTextField({
+function GentricTextField({
     icon,
-    label = 'Label',
-    variant = 'outlined',
-    type = 'text',
+    label,
+    variant,
+    type,
     value,
     onChange,
     onInputChange,
@@ -24,7 +25,7 @@ export default function GentricTextField({
     renderOption,
     isOptionEqualToValue,
     placeholder,
-    fullWidth = true,
+    fullWidth,
     className,
     ...props
 }) {
@@ -92,7 +93,6 @@ export default function GentricTextField({
     return (
         <Box className='gentric-compact-field'>
             <TextField
-
                 label={label}
                 value={value || ''}
                 onChange={onChange}
@@ -107,3 +107,39 @@ export default function GentricTextField({
         </Box>
     );
 }
+
+GentricTextField.propTypes = {
+    icon: PropTypes.node,
+    label: PropTypes.string,
+    variant: PropTypes.oneOf(['outlined', 'filled', 'standard']),
+    type: PropTypes.oneOf(['text', 'autocomplete', 'date', 'filter', 'search', 'number', 'password', 'email']),
+    value: PropTypes.any,
+    onChange: PropTypes.func,
+    onInputChange: PropTypes.func,
+    options: PropTypes.array,
+    getOptionLabel: PropTypes.func,
+    renderOption: PropTypes.func,
+    isOptionEqualToValue: PropTypes.func,
+    placeholder: PropTypes.string,
+    fullWidth: PropTypes.bool,
+    className: PropTypes.string,
+};
+
+GentricTextField.defaultProps = {
+    icon: null,
+    label: 'Label',
+    variant: 'outlined',
+    type: 'text',
+    value: undefined,
+    onChange: undefined,
+    onInputChange: undefined,
+    options: undefined,
+    getOptionLabel: undefined,
+    renderOption: undefined,
+    isOptionEqualToValue: undefined,
+    placeholder: undefined,
+    fullWidth: true,
+    className: undefined,
+};
+
+export default GentricTextField;

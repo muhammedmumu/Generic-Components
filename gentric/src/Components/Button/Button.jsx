@@ -6,14 +6,14 @@ import Box from '@mui/material/Box';
 const Buttons = ({
   label,
   onClick,
-  variant = 'outlined',
-  size = 'medium',
-  disabled = false,
-  startIcon = null,
-  endIcon = null,
-  typographyVariant = 'inherit',
-  className = '',
-  sx = {},
+  variant,
+  size,
+  disabled,
+  startIcon,
+  endIcon,
+  // typographyVariant = 'inherit',
+  className,
+  sx,
   ...props
 }) => {
   return (
@@ -46,6 +46,18 @@ Buttons.propTypes = {
   typographyVariant: PropTypes.string,
   className: PropTypes.string,
   sx: PropTypes.object,
+};
+
+Buttons.defaultProps = {
+  onClick: undefined,
+  variant: 'outlined',
+  size: 'medium',
+  disabled: false,
+  startIcon: null,
+  endIcon: null,
+  typographyVariant: 'inherit',
+  className: '',
+  sx: {},
 };
 
 export default Buttons;

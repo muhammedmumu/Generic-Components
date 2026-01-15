@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { useSearchParams } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
-export default function CustomTabs({ tabs = [] }) {
+function CustomTabs({ tabs }) {
     const [searchParams, setSearchParams] = useSearchParams();
     const theme = useTheme();
 
@@ -25,3 +26,20 @@ export default function CustomTabs({ tabs = [] }) {
         </Box>
     );
 }
+
+CustomTabs.propTypes = {
+    tabs: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.shape({
+                label: PropTypes.string,
+            })
+        ])
+    ),
+};
+
+CustomTabs.defaultProps = {
+    tabs: [],
+};
+
+export default CustomTabs;

@@ -69,15 +69,16 @@ const Override = (theme) => ({
                     top: 0,
                     zIndex: 1,
                 },
-                "& .MuiDataGrid-cell": {
-                    fontWeight: 500,
-                    fontSize: "11px",
-                    color: "#666666",
-                    border: "none",
-                },
+                // "& .MuiDataGrid-cell": {
+                //     fontWeight: 500,
+                //     fontSize: "11px",
+                //     color: "#666666",
+                //     border: "none",
+                // },
                 "& .MuiDataGrid-columnHeader": {
-                    borderRight: 0,
-                    borderColor: "divider",
+                    // borderRight: 0,
+                    // borderColor: "divider",
+                    border: "none",
                 },
                 borderRadius: 0,
                 "& .MuiDataGrid-columnHeader:focus-within": {
@@ -98,9 +99,9 @@ const Override = (theme) => ({
                 "& .MuiDataGrid-row.Mui-selected:hover": {
                     backgroundColor: "#c9c9ef !important",
                 },
-                "& .MuiDataGrid-cell--withRenderer.Mui-selected": {
-                    backgroundColor: "transparent",
-                },
+                // "& .MuiDataGrid-cell--withRenderer.Mui-selected": {
+                //     backgroundColor: "transparent",
+                // },
                 "& .MuiDataGrid-row:focus, & .MuiDataGrid-row:focus-within": {
                     outline: "none",
                 },
@@ -109,6 +110,7 @@ const Override = (theme) => ({
                     fontSize: 12,
                     color: "black",
                     textTransform: "uppercase",
+                 
                 },
                 "& .MuiDataGrid-footerContainer": {
                     fontSize: 12,
@@ -196,8 +198,8 @@ const Override = (theme) => ({
     MuiCard: {
         styleOverrides: {
             root: {
-                boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
-                borderRadius: 12,
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+                borderRadius: 15,
                 elevation: 3,
                 "&.gentric-card": {
                     "& .gentric-header": {
@@ -229,7 +231,11 @@ const Override = (theme) => ({
                     height: "fit-content",
                     marginBottom: theme.spacing(3),
                     "& .gentric-footer": {
-                        padding: theme.spacing(2),
+                        display: 'flex',
+                         gap: 1, 
+                         justifyContent: 'space-between',
+                         
+                        
                     },
                 },
             },
@@ -255,6 +261,7 @@ const Override = (theme) => ({
         styleOverrides: {
             root: {
                 borderColor: "#e0e0e0",
+                marginBottom:5
 
             },
         },
@@ -335,18 +342,18 @@ const Override = (theme) => ({
         },
     },
 
-    MuiTextField: {
-        styleOverrides: {
-            root: {
-                "& .MuiInputBase-root": {
-                    fontSize: "0.875rem",
-                },
-                "& .MuiInputLabel-root": {
-                    fontSize: "0.875rem",
-                },
-            },
-        },
-    },
+    // MuiTextField: {
+    //     styleOverrides: {
+    //         root: {
+    //             "& .MuiInputBase-root": {
+    //                 fontSize: "0.875rem",
+    //             },
+    //             "& .MuiInputLabel-root": {
+    //                 fontSize: "0.875rem",
+    //             },
+    //         },
+    //     },
+    // },
 
     MuiInputBase: {
         styleOverrides: {
@@ -488,25 +495,25 @@ const Override = (theme) => ({
                         borderRadius: '10px',
                         fontSize: '0.9rem',
                         padding: 'auto',
-                        padding: ' 0'
+                        
                     },
                 },
             },
         },
     },
 
-    MuiInputBase: {
-        styleOverrides: {
-            root: {
-                width: 'fit-content',
-                maxWidth: '150px',
-                '&.gentric-compact-field': {
-                    width: 'max-content',
-                    maxWidth: '150px',
-                },
-            },
-        },
-    },
+    // MuiInputBase: {
+    //     styleOverrides: {
+    //         root: {
+    //             width: 'fit-content',
+    //             maxWidth: '150px',
+    //             '&.gentric-compact-field': {
+    //                 width: 'max-content',
+    //                 maxWidth: '150px',
+    //             },
+    //         },
+    //     },
+    // },
 
     MuiInputLabel: {
         styleOverrides: {
