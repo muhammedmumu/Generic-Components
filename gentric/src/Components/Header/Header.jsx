@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Divider from '@mui/material/Divider';
 export default function Header({
     title,
+    subtitle,
     titleIcon,
     actions,
     textFields = [],
@@ -19,6 +20,11 @@ export default function Header({
                         <Typography variant="h3" sx={{ p: '2px', fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' }, fontWeight: 700, textTransform: 'capitalize', color: 'text.primary', letterSpacing: '-0.5px', lineHeight: 1.2 }} >
                             {title}
                         </Typography>
+                        {subtitle && (
+                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.4 }}>
+                                {subtitle}
+                            </Typography>
+                        )}
                     </Box>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1, '& .MuiIconButton-root': { transition: 'all 0.2s', '&:hover': { color: 'primary.main', transform: 'scale(1.05)' } } }} >
@@ -72,6 +78,7 @@ export default function Header({
 
     Header.propTypes = {
         title: PropTypes.string,
+        subtitle: PropTypes.string,
         titleIcon: PropTypes.node,
         actions: PropTypes.node,
         textFields: PropTypes.arrayOf(

@@ -31,7 +31,6 @@ export const mockTables = [
         filtering: false,
         rowSelection: "none",
         loading: false,
-
         onSelectMode: false,
         modeChange: false,
         render: "minimal"
