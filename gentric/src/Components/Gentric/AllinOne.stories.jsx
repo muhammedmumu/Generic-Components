@@ -13,7 +13,6 @@ const DemoBody = ({ sections = 3, rowsPerSection = 4 }) => (
       <Box
         key={sectionIndex}
         sx={{
-          sdfsdfsdafasfsd
           p: 2,
           border: '1px solid',
           borderColor: 'divider',
