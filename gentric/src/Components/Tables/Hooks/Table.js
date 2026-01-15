@@ -6,7 +6,7 @@ export default function TableHook({ columns, fields, sorting, filtering, paginat
         return columns.filter(col => fields.includes(col.field)).map(col => ({
             ...col, flex: 1, minWidth: 120, headerAlign: 'center', align: 'center', sortable: sorting, filterable: filtering, resizable: resize
         }));
-    }, [columns, fields, sorting, filtering]);
+    }, [columns, fields, sorting, filtering, resize]);
 
 
     // Pagination props clean
