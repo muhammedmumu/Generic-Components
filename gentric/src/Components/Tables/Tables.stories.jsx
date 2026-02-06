@@ -46,3 +46,16 @@ CompactTable.args = {
   filtering: true,
   sorting: false,
 };
+
+export const Virtualization = Template.bind({});
+Virtualization.args = {
+  rows: rows,
+  columns: columns,
+  fields: "All",
+  paginationMode: false,
+  checkBox: true,
+  filtering: false,
+  virtualization: true,
+  sorting: true,
+  sortMode: "server"
+}

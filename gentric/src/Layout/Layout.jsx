@@ -10,6 +10,8 @@ import TeamMemberRank from '../Pages/TeamMemberRank.jsx';
 import FullFeaturedTable from '../Pages/FullFeaturedTable.jsx';
 import ActionPlanSummary from '../Pages/ActionPlanSummary.jsx';
 import Withoutfotter from '../Pages/Withoutfotter.jsx';
+import VirtualizationPage from '../Pages/Virtualization.jsx';
+import MultiForms from '../Pages/MultiForms.jsx';
 
 
 export default function Layout() {
@@ -28,16 +30,14 @@ export default function Layout() {
     }
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 4, mb: 4, px: { xs: 2, sm: 3 } }}>
+        <Container maxWidth="lg" sx={{ mt: 4, mb: 4, px: { xs: 2, sm: 3 } }}>
             <Box sx={{
-                display: 'grid',
-                gridTemplateColumns: {
-                    xs: '1fr',
-                    md: 'repeat(2, 1fr)',
-                    lg: 'repeat(2, 1fr)'
-                },
+                display: 'flex',
+                flexWrap: 'wrap',
                 gap: 3,
                 '& > *': {
+                    flex: '0 0 calc(50% - 12px)',
+                    maxWidth: 'calc(50% - 12px)',
                     minHeight: 'fit-content'
                 }
             }}>
@@ -49,7 +49,8 @@ export default function Layout() {
                 <InsightsActions />
                 <ActionPlanSummary />
                 <TabsPage />
-                <Withoutfotter />
+                <VirtualizationPage />
+                <MultiForms />
             </Box>
         </Container>
     );

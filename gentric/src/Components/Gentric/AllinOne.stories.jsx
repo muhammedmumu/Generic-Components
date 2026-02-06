@@ -1,131 +1,177 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
-import Divider from '@mui/material/Divider';
 import GentricTables from './AllinOne';
-
-const DemoBody = ({ sections = 3, rowsPerSection = 4 }) => (
-  <Stack spacing={2} sx={{ p: 2 }}>
-    {Array.from({ length: sections }).map((_, sectionIndex) => (
-      <Box
-        key={sectionIndex}
-        sx={{
-          p: 2,
-          border: '1px solid',
-          borderColor: 'divider',
-          borderRadius: 2,
-          backgroundColor: 'background.paper',
-          boxShadow: 1,
-        }}
-      >
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
-          <Typography variant="subtitle1">Section {sectionIndex + 1}</Typography>
-          <Chip label="Active" size="small" color="primary" variant="outlined" />
-        </Stack>
-        <Divider sx={{ mb: 1 }} />
-        <Stack spacing={1.5}>
-          {Array.from({ length: rowsPerSection }).map((_, rowIndex) => (
-            <Box
-              key={rowIndex}
-              sx={{
-                p: 1.5,
-                borderRadius: 1,
-                border: '1px dashed',
-                borderColor: 'divider',
-                backgroundColor: 'background.default',
-              }}
-            >
-              <Typography variant="body2" color="text.secondary">
-                Row {rowIndex + 1} content with description and inline details.
-              </Typography>
-            </Box>
-          ))}
-        </Stack>
-      </Box>
-    ))}
-  </Stack>
-);
-
+import Buttons from '../Button/Button';
+import Footer from '../Footer/Fotter';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 export default {
   title: 'Components/GentricTables',
   component: GentricTables,
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: 'A versatile container component that wraps content in a Paper and Card layout with an optional footer section. Perfect for creating consistent table layouts or any content that needs structured presentation.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    children: {
+      description: 'The main content to be displayed inside the card',
+      control: 'none',
+    },
+    footer: {
+      description: 'Optional footer content to be displayed below the card',
+      control: 'none',
+    },
+  },
 };
 
-const Template = (args) => (
-  <Box sx={{ height: 420 }}>
-    <GentricTables {...args} />
+// Sample content component for demonstration
+const SampleContent = () => (
+  <Box sx={{ p: 3 }}>
+    <Typography variant="h5" gutterBottom>
+      Sample Content
+    </Typography>
+    <Typography variant="body1" paragraph>
+      This is a sample content area that demonstrates how the GentricTables component works.
+    </Typography>
+    <Typography variant="body2">
+      You can place any content here, such as tables, forms, charts, or any other React components.
+    </Typography>
   </Box>
 );
 
-export const Basic = Template.bind({});
-Basic.args = {
-  children: <DemoBody sections={2} rowsPerSection={3} />,
-};
-
-export const WithFooterActions = Template.bind({});
-WithFooterActions.args = {
-  children: <DemoBody sections={2} rowsPerSection={4} />,
-  footer: (
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        px: 2,
-        py: 1.5,
-        borderTop: '1px solid',
-        borderColor: 'divider',
-        backgroundColor: 'background.paper',
-      }}
-    >
-      <Typography variant="body2" color="text.secondary">
-        Showing 8 items
-      </Typography>
-      <Stack direction="row" spacing={1}>
-        <Button size="small" variant="outlined">Reset</Button>
-        <Button size="small" variant="contained">Apply</Button>
-      </Stack>
+// Sample table-like content
+const SampleTableContent = () => (
+  <Box sx={{ p: 2 }}>
+    <Typography variant="h6" sx={{ mb: 2 }}>
+      Data Table Example
+    </Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+      {[1, 2, 3, 4].map((row) => (
+        <Box
+          key={row}
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            p: 1.5,
+            borderBottom: '1px solid #e0e0e0',
+          }}
+        >
+          <Typography>Item {row}</Typography>
+          <Typography>Value {row * 100}</Typography>
+          <Typography>Status: Active</Typography>
+        </Box>
+      ))}
     </Box>
+  </Box>
+);
+
+/**
+ * Default story showing the basic usage of GentricTables without a footer.
+ */
+export const Default = {
+  render: () => (
+    <GentricTables>
+      <SampleContent />
+    </GentricTables>
   ),
 };
 
-export const DenseScrollable = Template.bind({});
-DenseScrollable.args = {
-  children: <DemoBody sections={4} rowsPerSection={6} />,
-  footer: (
-    <Box
-      sx={{
-        px: 2,
-        py: 1.25,
-        borderTop: '1px solid',
-        borderColor: 'divider',
-        backgroundColor: 'grey.50',
-      }}
+/**
+ * Story demonstrating GentricTables with a footer containing action buttons.
+ */
+export const WithFooter = {
+  render: () => (
+    <GentricTables
+      footer={
+        <Footer>
+          <Buttons label="Download" variant="contained" />
+          <Buttons label="Print" variant="outlined" />
+          <Buttons label="Share" variant="text" />
+        </Footer>
+      }
     >
-      <Typography variant="caption" color="text.secondary">
-        Long content demonstrates scroll within the card.
-      </Typography>
-    </Box>
+      <SampleContent />
+    </GentricTables>
   ),
 };
 
-export const MinimalShell = Template.bind({});
-MinimalShell.args = {
-  children: (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h6" gutterBottom>
-        Lightweight container
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        Use this layout to host any custom content — charts, tables, forms, or composed widgets.
-      </Typography>
-    </Box>
+/**
+ * Story showing GentricTables with table-like content and action buttons in the footer.
+ */
+export const WithTableContent = {
+  render: () => (
+    <GentricTables
+      footer={
+        <Footer>
+          <Buttons label="Export" variant="contained" />
+          <Buttons label="Refresh" variant="outlined" />
+        </Footer>
+      }
+    >
+      <SampleTableContent />
+    </GentricTables>
+  ),
+};
+
+/**
+ * Story demonstrating GentricTables with multiple action buttons in the footer.
+ */
+export const WithMultipleActions = {
+  render: () => (
+    <GentricTables
+      footer={
+        <Footer>
+          <Buttons label="Save" variant="contained" />
+          <Buttons label="Cancel" variant="outlined" />
+          <Buttons label="Delete" variant="outlined" color="error" />
+          <Buttons label="Help" variant="text" />
+        </Footer>
+      }
+    >
+      <Box sx={{ p: 3 }}>
+        <Typography variant="h5" gutterBottom>
+          Form Content
+        </Typography>
+        <Typography variant="body2">
+          This example shows how to use GentricTables with form content and multiple action buttons.
+        </Typography>
+      </Box>
+    </GentricTables>
+  ),
+};
+
+/**
+ * Story showing a minimal example with simple text content.
+ */
+export const Minimal = {
+  render: () => (
+    <GentricTables>
+      <Box sx={{ p: 2 }}>
+        <Typography>Simple text content</Typography>
+      </Box>
+    </GentricTables>
+  ),
+};
+
+/**
+ * Story demonstrating GentricTables with a custom footer component.
+ */
+export const CustomFooter = {
+  render: () => (
+    <GentricTables
+      footer={
+        <Box sx={{ p: 2, textAlign: 'center', bgcolor: '#f5f5f5' }}>
+          <Typography variant="caption" color="text.secondary">
+            Custom footer content - Last updated: {new Date().toLocaleDateString()}
+          </Typography>
+        </Box>
+      }
+    >
+      <SampleContent />
+    </GentricTables>
   ),
 };

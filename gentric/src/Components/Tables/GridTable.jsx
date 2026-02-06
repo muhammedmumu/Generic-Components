@@ -4,8 +4,28 @@ import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import TableHook from '../Tables/Hooks/Table';
 
-function Tables({ rows, columns, fields, paginationMode, checkBox, filtering, sorting, resizable, ...rest }) {
-    const { paginationProps, gridColumns } = TableHook({ columns, fields, sorting, filtering, paginationMode, resizable });
+function Tables({
+    rows,
+    columns,
+    fields,
+    paginationMode,
+    checkBox,
+    filtering,
+    sorting,
+    resizable,
+    sortMode,
+    ...rest }) {
+    const { paginationProps, gridColumns } =
+        TableHook({
+            columns,
+            fields,
+            sorting,
+            filtering,
+            paginationMode,
+            resizable,
+        });
+    const handleOn = () => (console.log(sortMode))
+
 
     const tableHeight = paginationMode ? 'fit-content' : 'auto';
     const maxHeight = paginationMode ? 'none' : '500px';
@@ -18,10 +38,10 @@ function Tables({ rows, columns, fields, paginationMode, checkBox, filtering, so
                 checkboxSelection={checkBox}
                 disableColumnFilter={!filtering}
                 disableColumnMenu={!(filtering || sorting)}
-                sortingMode={sorting ? "client" : "server"}
-                disableColumnSorting={!sorting}
+                disableColumnSorting={sorting}
                 disableColumnResizing={!resizable}
-
+                sortingMode={sortMode}
+                onSortModelChange={handleOn}
                 {...paginationProps} />
         </Box>
     );
@@ -44,7 +64,7 @@ Tables.defaultProps = {
     paginationMode: true,
     checkBox: false,
     filtering: true,
-    sorting: true,
+    sorting: false,
 };
 
 export default Tables;

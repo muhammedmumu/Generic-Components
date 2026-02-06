@@ -3,9 +3,14 @@ import { useMemo } from 'react';
 export default function TableHook({ columns, fields, sorting, filtering, paginationMode, resize }) {
     // Filter columns only once
     const gridColumns = useMemo(() => {
-        return columns.filter(col => fields.includes(col.field)).map(col => ({
-            ...col, flex: 1, minWidth: 120, headerAlign: 'center', align: 'center', sortable: sorting, filterable: filtering, resizable: resize
-        }));
+        return fields == "All" ?
+            columns.map(col => ({
+                ...col, flex: 1, minWidth: 120, headerAlign: 'center', align: 'center', sortable: sorting, filterable: filtering, resizable: resize
+            })) :
+
+            columns.filter(col => fields.includes(col.field)).map(col => ({
+                ...col, flex: 1, minWidth: 120, headerAlign: 'center', align: 'center', sortable: sorting, filterable: filtering, resizable: resize
+            }));
     }, [columns, fields, sorting, filtering, resize]);
 
 
@@ -21,7 +26,8 @@ export default function TableHook({ columns, fields, sorting, filtering, paginat
         }
             : { hideFooterPagination: true };
     }, [paginationMode]);
+
+
+
     return { paginationProps, gridColumns };
-
-
 }

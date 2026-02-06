@@ -13,11 +13,14 @@ export default {
 
 export const DefaultFooter = {
   render: () => (
-    <Footer>
-      <Buttons label="Download" variant="contained" />
-      <Buttons label="Print" variant="contained" />
-      <Buttons label="Share" variant="contained" />
-    </Footer>
+    <>
+      <Footer>
+        <Buttons label="Download" variant="contained" />
+        <Buttons label="Print" variant="contained" />
+        <Buttons label="Share" variant="contained" />
+      </Footer>
+
+    </>
   ),
 };
 

@@ -14,21 +14,22 @@ export default function FullFeaturedTable() {
   const { config, columns, actions, } = useTableConfig(0);
 
   if (!config) return null;
-  const footer = (<Footer >
-    <Buttons
-      label="Download all data"
-      variant="outlined"
-      startIcon={<DownloadIcon />}
-      onClick={() => console.log('Download all data')}
+  const footer = (
+    <Footer >
+      <Buttons
+        label="Download all data"
+        variant="outlined"
+        startIcon={<DownloadIcon />}
+        onClick={() => console.log('Download all data')}
 
-    />
-    <Buttons
-      label="> View all"
-      variant="outlined"
-      onClick={() => console.log('View all')}
-      sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-    />
-  </Footer>
+      />
+      <Buttons
+        label="> View all"
+        variant="outlined"
+        onClick={() => console.log('View all')}
+        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
+      />
+    </Footer>
   );
 
   return (
@@ -51,6 +52,6 @@ export default function FullFeaturedTable() {
         paginationMode={!!config?.pagination}
         sorting={!!config?.sorting}
       />
-    </AllinOne>
+    </AllinOne >
   );
 }

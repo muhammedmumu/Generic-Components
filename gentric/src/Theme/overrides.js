@@ -124,6 +124,8 @@ const Override = (theme) => ({
             root: {
                 fontSize: '0.875rem',
                 fontWeight: 600,
+                width: 'max-content',
+                margin: theme.spacing(1),
                 borderRadius: theme.spacing(1),
                 textTransform: 'none',
                 padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
@@ -232,12 +234,16 @@ const Override = (theme) => ({
                     marginBottom: theme.spacing(3),
                     "& .gentric-footer": {
                         display: 'flex',
+                        flexDirection: 'row',
                         gap: 1,
                         justifyContent: 'space-between',
+                        padding: theme.spacing(2),
 
 
                     },
                 },
+
+
             },
         },
     },
