@@ -3,7 +3,8 @@ import { useMemo } from 'react';
 export default function TableHook({ columns, fields, sorting, filtering, paginationMode, resize }) {
     // Filter columns only once
     const gridColumns = useMemo(() => {
-        return fields == "All" ?
+        const isAllFields = fields === "All" || !fields || fields.length === 0;
+        return isAllFields ?
             columns.map(col => ({
                 ...col, flex: 1, minWidth: 120, headerAlign: 'center', align: 'center', sortable: sorting, filterable: filtering, resizable: resize
             })) :

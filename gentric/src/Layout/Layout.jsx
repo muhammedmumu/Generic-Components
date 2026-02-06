@@ -36,9 +36,9 @@ export default function Layout() {
                 flexWrap: 'wrap',
                 gap: 3,
                 '& > *': {
-                    flex: '0 0 calc(50% - 12px)',
-                    maxWidth: 'calc(50% - 12px)',
-                    minHeight: 'fit-content'
+                    flex: '1 1 calc(50% - 12px)',
+                    minWidth: 0,
+                    maxWidth: 'calc(50% - 12px)'
                 }
             }}>
                 <FullFeaturedTable />

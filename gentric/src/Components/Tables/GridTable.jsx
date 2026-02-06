@@ -14,6 +14,7 @@ function Tables({
     sorting,
     resizable,
     sortMode,
+    virtualization,
     ...rest }) {
     const { paginationProps, gridColumns } =
         TableHook({
@@ -27,11 +28,16 @@ function Tables({
     const handleOn = () => (console.log(sortMode))
 
 
-    const tableHeight = paginationMode ? 'fit-content' : 'auto';
+    const tableHeight = virtualization ? '600px' : (paginationMode ? 'fit-content' : 'auto');
     const maxHeight = paginationMode ? 'none' : '500px';
 
     return (
-        <Box sx={{ width: '100%', height: tableHeight, maxHeight: maxHeight, overflowY: 'auto' }}>
+        <Box sx={{
+            width: '100%',
+            height: tableHeight,
+            maxHeight: virtualization ? 'none' : maxHeight,
+            overflowY: virtualization ? 'hidden' : 'auto'
+        }}>
             <DataGrid
                 rows={rows}
                 columns={gridColumns}
@@ -50,11 +56,17 @@ function Tables({
 Tables.propTypes = {
     rows: PropTypes.array,
     columns: PropTypes.array,
-    fields: PropTypes.array,
+    fields: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array
+    ]),
     paginationMode: PropTypes.bool,
     checkBox: PropTypes.bool,
     filtering: PropTypes.bool,
     sorting: PropTypes.bool,
+    virtualization: PropTypes.bool,
+    sortMode: PropTypes.string,
+    resizable: PropTypes.bool,
 };
 
 Tables.defaultProps = {
@@ -65,6 +77,9 @@ Tables.defaultProps = {
     checkBox: false,
     filtering: true,
     sorting: false,
+    virtualization: false,
+    sortMode: 'client',
+    resizable: false,
 };
 
 export default Tables;
