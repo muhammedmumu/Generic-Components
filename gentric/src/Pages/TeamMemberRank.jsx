@@ -19,52 +19,50 @@ export default function TeamMemberRank() {
   const [textField3, setTextField3] = React.useState('');
   const [autocomplete2, setAutocomplete2] = React.useState('');
 
-  const textFields = [
+  const filterFields = [
     {
+      // Date filter
       type: 'date',
-      label: "",
+      label: '',
       value: textField1,
       onChange: (e) => setTextField1(e.target.value),
-
-
+      fullWidth: false,
     },
+
+    // 🔹 Static label should NOT be part of input config
     {
       type: 'label',
       label: 'Response Cut-Off:',
-      sx: {
-        fontWeight: 600,
-        fontSize: '0.95rem',
-        color: '#667085',
-        display: 'flex',
-        alignItems: 'center'
-      }
     },
+
     {
+      // Main response filter
       type: 'autocomplete',
-      label: 'All Responses',
       placeholder: 'All Responses',
       value: autocomplete1,
-      onChange: (event, newValue) => setAutocomplete1(newValue),
-      fullWidth: true,
+      onChange: (_, newValue) => setAutocomplete1(newValue),
+      fullWidth: false,
     },
+
     {
+      // Status filter
       type: 'autocomplete',
-      label: 'All',
       placeholder: 'All',
       value: textField3,
-      onChange: (event, newValue) => setTextField3(newValue),
-      fullWidth: true,
-
+      onChange: (_, newValue) => setTextField3(newValue),
+      fullWidth: false,
     },
+
     {
+      // Category filter
       type: 'autocomplete',
-      label: 'Leasing',
       placeholder: 'Leasing',
       value: autocomplete2,
-      onChange: (event, newValue) => setAutocomplete2(newValue),
-      fullWidth: true,
-    }
+      onChange: (_, newValue) => setAutocomplete2(newValue),
+      fullWidth: false,
+    },
   ];
+
   const footer = (
     <Footer>
       <Buttons
@@ -90,7 +88,7 @@ export default function TeamMemberRank() {
         <Header
           title={config?.title}
           titleIcon={<StarsOutlinedIcon />}
-          textFields={textFields}
+          textFields={filterFields}
           actions={actions}
 
         />

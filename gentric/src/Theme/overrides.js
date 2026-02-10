@@ -211,7 +211,6 @@ const Override = (theme) => ({
                         flexDirection: "column",
                         gap: theme.spacing(2),
                         alignItems: "center",
-
                     },
                     "& .gentric-content": {
                         height: "calc(100% - 120px)",
@@ -231,6 +230,7 @@ const Override = (theme) => ({
                 "&.gentric-container": {
                     width: "auto",
                     height: "fit-content",
+                    padding: 0,
                     marginBottom: theme.spacing(3),
                     "& .gentric-footer": {
                         display: 'flex',
@@ -480,12 +480,14 @@ const Override = (theme) => ({
         styleOverrides: {
             root: {
                 '&.gentric-compact-field': {
+                    flex: '1 1 auto',
                     '& .MuiOutlinedInput-root': {
                         height: 38,
                         borderRadius: '10px',
                         fontSize: '0.9rem',
                         padding: 'auto',
-                        width: '150px',
+                        width: 'auto',
+                        flex: '1 1 auto',
                     },
                 },
             },
@@ -495,12 +497,13 @@ const Override = (theme) => ({
     MuiAutocomplete: {
         styleOverrides: {
             root: {
+                width: 'auto',
                 '&.gentric-compact-field': {
                     '& .MuiOutlinedInput-root': {
                         height: 38,
                         borderRadius: '10px',
                         fontSize: '0.9rem',
-                        padding: 'auto',
+                        padding: '2px 4px',
 
                     },
                 },

@@ -31,16 +31,19 @@ export default function Layout() {
 
     return (
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4, px: { xs: 2, sm: 3 } }}>
-            <Box sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 3,
-                '& > *': {
-                    flex: '1 1 calc(50% - 12px)',
-                    minWidth: 0,
-                    maxWidth: 'calc(50% - 12px)'
-                }
-            }}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: 3,
+                    flex: '1 1 fit-content',
+                    '& > *': {
+                        flex: '1 1 auto',
+                        minWidth: 0,
+                        maxWidth: 'calc(50% - 12px)'
+                    }
+                }}
+            >
                 <FullFeaturedTable />
                 <TeamMemberRank />
                 <PortfolioMetrics />

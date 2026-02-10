@@ -108,3 +108,59 @@ export const Complete = {
     ],
   },
 };
+
+export const TeamMemberRankExample = {
+  args: {
+    title: 'Team Member Rank',
+    titleIcon: <StarsOutlinedIcon sx={{ fontSize: 32, color: 'primary.main' }} />,
+    textFields: [
+      {
+        type: 'date',
+        label: '',
+        value: '',
+        onChange: () => { },
+      },
+      {
+        type: 'label',
+        label: 'Response Cut-Off:',
+        sx: {
+          fontWeight: 600,
+          fontSize: '0.95rem',
+          color: '#667085',
+          display: 'flex',
+          alignItems: 'center'
+        }
+      },
+      {
+        type: 'autocomplete',
+        value: null,
+        onChange: () => { },
+        options: [
+          { label: 'All Responses', value: 'all' },
+          { label: 'Positive', value: 'positive' },
+          { label: 'Negative', value: 'negative' },
+        ],
+      },
+      {
+        type: 'autocomplete',
+        value: null,
+        onChange: () => { },
+        options: [
+          { label: 'All', value: 'all' },
+          { label: 'Active', value: 'active' },
+          { label: 'Inactive', value: 'inactive' },
+        ],
+      },
+      {
+        type: 'autocomplete',
+        value: null,
+        onChange: () => { },
+        options: [
+          { label: 'Leasing', value: 'leasing' },
+          { label: 'Sales', value: 'sales' },
+          { label: 'Support', value: 'support' },
+        ],
+      }
+    ],
+  },
+};

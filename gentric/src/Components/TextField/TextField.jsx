@@ -31,39 +31,90 @@ function GentricTextField({
 }) {
     const inputProps = useInputProps({ type, icon });
 
+    // Autocomplete: Controlled, content-based width, null default
     if (type === 'autocomplete') {
-        // Use provided options or fall back to default options
         const autocompleteOptions = options && options.length > 0 ? options : DEFAULT_AUTOCOMPLETE_OPTIONS;
-        const defaultGetOptionLabel = (option) => option.label || '';
-        const defaultIsOptionEqualToValue = (option, value) => option.value === value?.value;
+        const defaultGetOptionLabel = (option) => option?.label || '';
+        const defaultIsOptionEqualToValue = (option, val) => option?.value === val?.value;
+
+        // Ensure value is null if empty (never undefined)
+        const controlledValue = value === undefined || value === '' ? null : value;
 
         return (
-            <Box className='gentric-compact-field'>
+            <Box
+                className='gentric-compact-field'
+                sx={{
+                    display: 'inline-flex',
+                    width: 'fit-content',
+                    minWidth: '120px',
+                }}
+            >
                 <Autocomplete
-
                     options={autocompleteOptions}
-                    value={value}
+                    value={controlledValue}
                     onChange={onChange}
                     onInputChange={onInputChange}
                     getOptionLabel={getOptionLabel || defaultGetOptionLabel}
                     renderOption={renderOption}
                     isOptionEqualToValue={isOptionEqualToValue || defaultIsOptionEqualToValue}
-                    fullWidth={fullWidth}
-
+                    size="small"
+                    PopperProps={{
+                        placement: 'bottom-start',
+                        modifiers: [
+                            {
+                                name: 'flip',
+                                enabled: false,
+                            },
+                            {
+                                name: 'preventOverflow',
+                                enabled: true,
+                                options: {
+                                    altAxis: true,
+                                    altBoundary: true,
+                                    tether: true,
+                                    rootBoundary: 'viewport',
+                                },
+                            },
+                        ],
+                    }}
                     renderInput={(params) => (
-                        <TextField sx={{ width: fullWidth ? '100%' : 'fit-content' }}
+                        <TextField
                             {...params}
-                            label={label}
-                            variant={variant}
                             placeholder={placeholder}
-                            fullWidth={fullWidth}
+                            variant={variant || 'outlined'}
                             size="small"
                             InputProps={{
                                 ...params.InputProps,
                                 ...inputProps,
                             }}
+                            sx={{
+                                '& .MuiInputBase-root': {
+                                    width: 'auto',
+                                    minWidth: '120px',
+                                },
+                                '& .MuiInputBase-input': {
+                                    padding: '6px 8px',
+                                    width: 'auto',
+                                    minWidth: '60px',
+                                },
+                            }}
                         />
                     )}
+                    sx={{
+                        width: 'fit-content',
+                        minWidth: '120px',
+                        '& .MuiAutocomplete-inputRoot': {
+                            padding: '2px 8px',
+                            paddingRight: '39px',
+                            width: 'auto !important',
+                        },
+                        '& .MuiAutocomplete-endAdornment': {
+                            position: 'absolute',
+                            right: '4px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                        },
+                    }}
                     {...props}
                 />
             </Box>
@@ -127,17 +178,17 @@ GentricTextField.propTypes = {
 
 GentricTextField.defaultProps = {
     icon: null,
-    label: 'Label',
+    label: null,
     variant: 'outlined',
     type: 'text',
-    value: undefined,
+    value: null,
     onChange: undefined,
     onInputChange: undefined,
     options: undefined,
     getOptionLabel: undefined,
     renderOption: undefined,
     isOptionEqualToValue: undefined,
-    placeholder: undefined,
+    placeholder: null,
     fullWidth: true,
     className: undefined,
 };
