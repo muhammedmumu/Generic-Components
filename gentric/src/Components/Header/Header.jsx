@@ -32,7 +32,7 @@ export default function Header({
                 </Box>
             </Box>
             {/* mapping the textfields and controls */}
-            <Box sx={{ width: "100%", mt: 2, display: 'flex', gap: 2, alignItems: 'center', justifyContent: 'flex-start', paddingBottom: '10px', width: 'fit-content', flexWrap: 'wrap' }}>
+            <Box sx={{ mt: 2, display: 'flex', gap: 2, alignItems: 'center', justifyContent: 'flex-start', paddingBottom: '10px', width: 'fit-content', flexWrap: 'wrap' }}>
                 {textFields.map((textField, idx) => {
                     if (textField.type === 'label') {
                         return (
